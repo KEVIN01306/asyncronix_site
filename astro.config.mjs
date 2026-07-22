@@ -2,20 +2,43 @@
 import { defineConfig } from 'astro/config';
 
 import tailwindcss from '@tailwindcss/vite';
+import sitemap from '@astrojs/sitemap';
 
-import cloudflare from '@astrojs/cloudflare';
+// 1. Cambiamos Cloudflare por Node.js
+import node from '@astrojs/node';
 import { LANGUAGES } from './src/i18n/config.i18n';
+//import { getAllSitemapUrls } from './src/utils/sitemapUrls.mjs';
+
+//const uniqueUrls = getAllSitemapUrls();
 
 // https://astro.build/config
 export default defineConfig({
   output: 'server',
-  vite: {
-    plugins: [tailwindcss()]
+
+  server: {
+    host: '0.0.0.0',
+    port: 5002,
   },
 
-  site: 'https://kerrinfull.cloud',
+  vite: {
+    plugins: [tailwindcss()],
+    optimizeDeps: {
+      exclude: ['astro:transitions']
+    },
+    ssr: {
+      noExternal: ['astro:transitions']
+    },
+    server: {
+      allowedHosts: ['asyncronix.com', 'www.asyncronix.com'],
+    },
+  },
 
-  adapter: cloudflare(),
+  site: 'https://asyncronix.com',
+
+  adapter: node({
+    mode: 'standalone'
+  }),
+
   i18n: {
     defaultLocale: 'es',
     locales: Object.keys(LANGUAGES),
@@ -24,5 +47,20 @@ export default defineConfig({
       fallbackType: 'redirect',
       redirectToDefaultLocale: true,
     }
-  }
+  },
+  integrations: [sitemap({
+    i18n: {
+      defaultLocale: 'es',
+      locales: {
+        en: 'en',
+        es: 'es',
+        fr: 'fr',
+        it: 'it'
+      },
+    },
+    changefreq: 'weekly',
+    priority: 0.7,
+    lastmod: new Date(),
+    customPages: ['www.asyncronix.com', 'app.asyncronix.com']
+  })]
 });
