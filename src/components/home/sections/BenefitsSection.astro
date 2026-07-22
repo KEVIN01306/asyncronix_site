@@ -1,0 +1,77 @@
+---
+const { data } = Astro.props;
+---
+
+<section class="py-24 bg-white bg-pattern">
+  <div
+    class="max-w-7xl mx-auto px-6 flex flex-col lg:flex-row items-center gap-16"
+  >
+    <div class="w-1/2 lg:w-1/2">
+      <div class="relative glass-card p-2 lg:p-6 bg-slate-50/50 rotate-4">
+        <img
+          src="/images/chica_asyncronix.png"
+          alt="Beneficios Asyncronix"
+          class="w-full rounded-2xl shadow-lg border border-slate-200"
+        />
+        <!-- Floating badge -->
+        <div
+          class="absolute -right-6 -bottom-6 glass-card p-4 flex items-center gap-4 animate-float shadow-xl hidden md:flex"
+        >
+          <div class="bg-green-100 text-green-600 p-2 rounded-full">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              ><path d="M12 2v20"></path><path d="m17 5-5-3-5 3"></path><path
+                d="m17 19-5 3-5-3"></path></svg
+            >
+          </div>
+          <div>
+            <p class="text-sm font-bold text-slate-900">+120%</p>
+            <p class="text-xs text-slate-500">Eficiencia</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="w-full lg:w-1/2">
+      <h2
+        class="text-3xl md:text-5xl font-bold text-slate-900 mb-8 tracking-tight"
+      >
+        {data.title}
+      </h2>
+      <ul class="flex flex-col gap-6">
+        {
+          data.items.map((benefit: string) => (
+            <li class="flex items-start gap-4">
+              <div class="mt-1 flex-shrink-0 w-6 h-6 rounded-full bg-gradient-to-r from-[var(--color-secondary)] to-[var(--color-primary)] text-white flex items-center justify-center shadow-sm">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="14"
+                  height="14"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="3"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M20 6 9 17l-5-5" />
+                </svg>
+              </div>
+              <p class="text-lg text-slate-700 leading-relaxed font-medium">
+                {benefit}
+              </p>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </div>
+</section>

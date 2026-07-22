@@ -1,0 +1,66 @@
+---
+const { modules, hero, lang } = Astro.props;
+---
+
+<section class="py-24 bg-white relative bg-pattern">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center mb-16">
+      <h1
+        class="text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight mb-4"
+      >
+        {hero.title}
+      </h1>
+      <p class="text-xl text-slate-600">
+        {hero.subtitle}
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {
+        modules.map((module: any) => (
+          <a
+            href={`/${lang}/modules/${module.slug}`}
+            class="group flex flex-col h-full bg-slate-50 rounded-[2rem] p-2 border border-slate-100 hover:border-[var(--color-primary)]/30 hover:shadow-xl transition-all duration-300"
+          >
+            <div class="w-full aspect-[4/3] rounded-[1.5rem] overflow-hidden bg-white mb-6 p-8 flex items-center justify-center relative">
+              <div class="absolute inset-0 bg-gradient-to-br from-[var(--color-secondary)]/10 to-[var(--color-primary)]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <img
+                src={module.image}
+                alt={module.name}
+                class="w-full h-full object-contain relative z-10 group-hover:scale-105 transition-transform duration-500"
+              />
+            </div>
+            <div class="px-6 pb-8 flex-1 flex flex-col">
+              <h3 class="text-2xl font-bold text-slate-900 mb-3 group-hover:text-[var(--color-primary)] transition-colors">
+                {module.name}
+              </h3>
+              <p class="text-slate-600 leading-relaxed flex-1">
+                {module.shortDescription}
+              </p>
+              <div class="mt-6 flex items-center gap-2 text-[var(--color-primary)] font-semibold">
+                Ver detalle
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="group-hover:translate-x-1 transition-transform"
+                >
+                  <>
+                    <path d="M5 12h14" />
+                    <path d="m12 5 7 7-7 7" />
+                  </>
+                </svg>
+              </div>
+            </div>
+          </a>
+        ))
+      }
+    </div>
+  </div>
+</section>

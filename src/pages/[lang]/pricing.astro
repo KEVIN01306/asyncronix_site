@@ -1,0 +1,29 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { actions } from "astro:actions";
+import type { Lang } from "../../i18n/config.i18n";
+
+// Sections
+import PricingCalculator from "../../components/pricing/sections/PricingCalculator.astro";
+
+const lang = Astro.params.lang as Lang;
+
+const { data, error: pricingError } = await Astro.callAction(
+    actions.getPricing,
+    { lang },
+);
+const pricingData = data as any;
+
+if (pricingError || !pricingData || !pricingData.hero) {
+    return Astro.redirect("/404");
+}
+
+const title = `Asyncronix | ${pricingData.hero.title}`;
+const description = pricingData.hero.subtitle;
+---
+
+<Layout title={title} description={description} lang={lang}>
+    <main>
+        <PricingCalculator data={pricingData} />
+    </main>
+</Layout>

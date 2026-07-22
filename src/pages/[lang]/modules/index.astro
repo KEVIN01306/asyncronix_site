@@ -1,0 +1,28 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import { actions } from "astro:actions";
+import type { Lang } from "../../../i18n/config.i18n";
+import ModuleGrid from "../../../components/modules/sections/ModuleGrid.astro";
+import data from "../../../data/modules-content.json";
+
+const lang = Astro.params.lang as Lang;
+const contentData = data[lang]; // Temporary fallback since action doesn't return hero
+
+const { data: modulesData, error: modulesError } = await Astro.callAction(
+    actions.getModules,
+    { lang },
+);
+
+if (modulesError || !modulesData) {
+    return Astro.redirect("/404");
+}
+
+const title = `Asyncronix | ${contentData.hero.title}`;
+const description = contentData.hero.subtitle;
+---
+
+<Layout title={title} description={description} lang={lang}>
+    <main>
+        <ModuleGrid modules={modulesData} hero={contentData.hero} lang={lang} />
+    </main>
+</Layout>

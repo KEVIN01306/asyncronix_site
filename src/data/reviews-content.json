@@ -1,0 +1,102 @@
+{
+  "es": {
+    "reviews": [
+      {
+        "id": 1,
+        "name": "Carlos M.",
+        "company": "Distribuidora del Centro",
+        "text": "Asyncronix transformó la manera en que manejamos nuestro inventario. Ahora sabemos exactamente qué tenemos en cada sucursal.",
+        "avatar": "/logo.webp"
+      },
+      {
+        "id": 2,
+        "name": "Laura G.",
+        "company": "Taller AutoExpert",
+        "text": "El módulo de taller es increíble. La integración con WhatsApp nos permite enviar actualizaciones automáticas a nuestros clientes.",
+        "avatar": "/logo.webp"
+      },
+      {
+        "id": 3,
+        "name": "Juan P.",
+        "company": "Ferretería San José",
+        "text": "La escalabilidad del sistema es perfecta. Empezamos con una tienda y ahora gestionamos tres desde la misma plataforma.",
+        "avatar": "/logo.webp"
+      }
+    ]
+  },
+  "en": {
+    "reviews": [
+      {
+        "id": 1,
+        "name": "Carlos M.",
+        "company": "Distribuidora del Centro",
+        "text": "Asyncronix transformed the way we handle our inventory. Now we know exactly what we have in each branch.",
+        "avatar": "/logo.webp"
+      },
+      {
+        "id": 2,
+        "name": "Laura G.",
+        "company": "AutoExpert Workshop",
+        "text": "The workshop module is amazing. WhatsApp integration allows us to send automatic updates to our customers.",
+        "avatar": "/logo.webp"
+      },
+      {
+        "id": 3,
+        "name": "Juan P.",
+        "company": "San Jose Hardware",
+        "text": "The scalability of the system is perfect. We started with one store and now we manage three from the same platform.",
+        "avatar": "/logo.webp"
+      }
+    ]
+  },
+  "fr": {
+    "reviews": [
+      {
+        "id": 1,
+        "name": "Carlos M.",
+        "company": "Distribuidora del Centro",
+        "text": "Asyncronix a transformé notre façon de gérer nos stocks. Maintenant, nous savons exactement ce que nous avons dans chaque succursale.",
+        "avatar": "/logo.webp"
+      },
+      {
+        "id": 2,
+        "name": "Laura G.",
+        "company": "Atelier AutoExpert",
+        "text": "Le module atelier est incroyable. L'intégration de WhatsApp nous permet d'envoyer des mises à jour automatiques à nos clients.",
+        "avatar": "/logo.webp"
+      },
+      {
+        "id": 3,
+        "name": "Juan P.",
+        "company": "Quincaillerie San José",
+        "text": "L'évolutivité du système est parfaite. Nous avons commencé avec un magasin et maintenant nous en gérons trois depuis la même plateforme.",
+        "avatar": "/logo.webp"
+      }
+    ]
+  },
+  "it": {
+    "reviews": [
+      {
+        "id": 1,
+        "name": "Carlos M.",
+        "company": "Distribuidora del Centro",
+        "text": "Asyncronix ha trasformato il modo in cui gestiamo il nostro inventario. Ora sappiamo esattamente cosa abbiamo in ogni filiale.",
+        "avatar": "/logo.webp"
+      },
+      {
+        "id": 2,
+        "name": "Laura G.",
+        "company": "Officina AutoExpert",
+        "text": "Il modulo officina è fantastico. L'integrazione con WhatsApp ci consente di inviare aggiornamenti automatici ai nostri clienti.",
+        "avatar": "/logo.webp"
+      },
+      {
+        "id": 3,
+        "name": "Juan P.",
+        "company": "Ferramenta San José",
+        "text": "La scalabilità del sistema è perfetta. Abbiamo iniziato con un negozio e ora ne gestiamo tre dalla stessa piattaforma.",
+        "avatar": "/logo.webp"
+      }
+    ]
+  }
+}

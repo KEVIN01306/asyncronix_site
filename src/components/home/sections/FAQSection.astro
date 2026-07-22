@@ -1,0 +1,58 @@
+---
+const { data } = Astro.props;
+---
+
+<section class="py-24 bg-white relative bg-pattern">
+  <div class="max-w-4xl mx-auto px-6">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl md:text-5xl font-bold text-slate-900 tracking-tight">
+        {data.title}
+      </h2>
+    </div>
+
+    <div class="flex flex-col gap-4">
+      {
+        data.items.map((faq: any, index: number) => (
+          <details class="group bg-slate-50 border border-slate-100 rounded-2xl [&_summary::-webkit-details-marker]:hidden open:bg-white open:shadow-md transition-all duration-300">
+            <summary class="flex cursor-pointer items-center justify-between gap-4 p-6 font-semibold text-lg text-slate-900">
+              {faq.question}
+              <span class="relative h-6 w-6 flex-shrink-0">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="absolute inset-0 h-6 w-6 opacity-100 group-open:opacity-0 transition-opacity text-[var(--color-primary)]"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M12 4v16m8-8H4"
+                  />
+                </svg>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="absolute inset-0 h-6 w-6 opacity-0 group-open:opacity-100 transition-opacity text-[var(--color-primary)]"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M20 12H4"
+                  />
+                </svg>
+              </span>
+            </summary>
+            <div class="px-6 pb-6 text-slate-600 leading-relaxed">
+              <p>{faq.answer}</p>
+            </div>
+          </details>
+        ))
+      }
+    </div>
+  </div>
+</section>

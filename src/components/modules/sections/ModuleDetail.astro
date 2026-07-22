@@ -1,0 +1,197 @@
+---
+const { module, lang } = Astro.props;
+---
+
+<section class="py-24 bg-white relative bg-pattern">
+  <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-start">
+    <!-- Carousel Container -->
+    <div class="lg:sticky lg:top-32 w-full flex flex-col gap-4">
+      <div
+        class="w-full aspect-square md:aspect-[4/3] rounded-[3rem] bg-slate-50 border border-slate-100 overflow-hidden relative group"
+      >
+        <div
+          class="absolute inset-0 bg-gradient-to-br from-[var(--color-secondary)]/5 to-[var(--color-primary)]/5 opacity-50 pointer-events-none z-0"
+        >
+        </div>
+
+        <!-- Scrollable Area -->
+        <div
+          id="module-carousel"
+          class="w-full h-full flex overflow-x-auto snap-x snap-mandatory hide-scrollbar relative z-10"
+        >
+          {
+            (module.images || [module.image, module.image, module.image]).map(
+              (img: string, idx: number) => (
+                <div class="w-full h-full shrink-0 snap-center p-2 flex items-center justify-center">
+                  <img
+                    src={img}
+                    alt={`${module.name} - Imagen ${idx + 1}`}
+                    class="w-full h-full object-contain animate-float"
+                  />
+                </div>
+              ),
+            )
+          }
+        </div>
+      </div>
+
+      <!-- Pagination Dots -->
+      <div class="flex justify-center gap-2 mt-2">
+        {
+          (module.images || [module.image, module.image, module.image]).map(
+            (_: any, idx: number) => (
+              <button
+                class={`carousel-dot w-3 h-3 rounded-full transition-all duration-300 ${idx === 0 ? "bg-[var(--color-primary)] w-8" : "bg-slate-300 hover:bg-slate-400"}`}
+                data-index={idx}
+                aria-label={`Ir a imagen ${idx + 1}`}
+              />
+            ),
+          )
+        }
+      </div>
+    </div>
+
+    <div class="flex flex-col gap-10">
+      <div>
+        <a
+          href={`/${lang}/modules`}
+          class="inline-flex items-center gap-2 text-slate-500 hover:text-[var(--color-primary)] mb-6 transition-colors font-medium"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"><path d="m15 18-6-6 6-6"></path></svg
+          >
+          Volver a módulos
+        </a>
+        <h1
+          class="text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight mb-6"
+        >
+          {module.name}
+        </h1>
+        <p class="text-xl text-slate-600 leading-relaxed">
+          {module.description}
+        </p>
+      </div>
+
+      <div
+        class="p-8 rounded-[2rem] bg-gradient-to-br from-slate-50 to-white border border-slate-200 shadow-sm"
+      >
+        <h3 class="text-2xl font-bold text-slate-900 mb-6">Características</h3>
+        <ul class="flex flex-col gap-4">
+          {
+            module.features.map((feature: string) => (
+              <li class="flex items-start gap-3 text-lg text-slate-700 font-medium">
+                <svg
+                  class="w-6 h-6 text-[var(--color-primary)] shrink-0 mt-0.5"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M5 13l4 4L19 7"
+                  />
+                </svg>
+                {feature}
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+
+      <div
+        class="p-8 rounded-[2rem] bg-[var(--color-primary)]/5 border border-[var(--color-primary)]/20 shadow-sm"
+      >
+        <h3 class="text-2xl font-bold text-slate-900 mb-6">Beneficios clave</h3>
+        <ul class="flex flex-col gap-4">
+          {
+            module.benefits.map((benefit: string) => (
+              <li class="flex items-start gap-3 text-lg text-slate-700 font-medium">
+                <div class="w-6 h-6 rounded-full bg-[var(--color-primary)]/20 text-[var(--color-primary)] flex items-center justify-center shrink-0 mt-0.5">
+                  <svg
+                    class="w-3 h-3"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    stroke-width="3"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M12 4v16m8-8H4"
+                    />
+                  </svg>
+                </div>
+                {benefit}
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+
+      <div class="pt-6">
+        <a
+          href="https://app.asyncronix.com/register"
+          class="btn-primary py-4 px-8 text-lg w-full sm:w-auto text-center"
+        >
+          Probar este módulo
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const carousel = document.getElementById("module-carousel");
+    const dots = document.querySelectorAll(".carousel-dot");
+
+    if (!carousel || dots.length === 0) return;
+
+    // Scroll to index when dot is clicked
+    dots.forEach((dot, index) => {
+      dot.addEventListener("click", () => {
+        const width = carousel.clientWidth;
+        carousel.scrollTo({
+          left: width * index,
+          behavior: "smooth",
+        });
+      });
+    });
+
+    // Update dots on scroll
+    carousel.addEventListener("scroll", () => {
+      const width = carousel.clientWidth;
+      const index = Math.round(carousel.scrollLeft / width);
+
+      dots.forEach((dot, i) => {
+        if (i === index) {
+          dot.classList.remove("bg-slate-300", "hover:bg-slate-400");
+          dot.classList.add("bg-[var(--color-primary)]", "w-8");
+        } else {
+          dot.classList.add("bg-slate-300", "hover:bg-slate-400");
+          dot.classList.remove("bg-[var(--color-primary)]", "w-8");
+        }
+      });
+    });
+  });
+</script>

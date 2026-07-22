@@ -1,0 +1,39 @@
+---
+import { ui } from "../../i18n/ui.i18n";
+import { getLangFromUrl, useTranslations } from "../../i18n/utils.i18n";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<footer class="w-full border-t border-slate-200 bg-white py-12 px-6">
+  <div
+    class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6"
+  >
+    <div class="flex items-center gap-2">
+      <img
+        src="/logo.webp"
+        class="w-8 h-8 object-contain opacity-50 grayscale"
+        alt="Asyncronix Logo"
+      />
+      <span class="font-semibold text-lg text-slate-400">Asyncronix</span>
+    </div>
+
+    <div class="flex gap-6 text-sm font-medium text-slate-500">
+      <a
+        href={`/${lang}/terms`}
+        class="hover:text-[var(--color-primary)] transition-colors"
+        >{t.nav.terms}</a
+      >
+      <a
+        href={`/${lang}/privacy`}
+        class="hover:text-[var(--color-primary)] transition-colors"
+        >{t.nav.privacy}</a
+      >
+    </div>
+
+    <p class="text-sm font-medium text-slate-400 text-center md:text-right">
+      {t.footer.rights}
+    </p>
+  </div>
+</footer>

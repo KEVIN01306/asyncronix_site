@@ -1,0 +1,44 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { actions } from "astro:actions";
+import type { Lang } from "../../i18n/config.i18n";
+
+const lang = Astro.params.lang as Lang;
+const { data: rawData, error } = await Astro.callAction(
+    actions.getPageContent,
+    {
+        lang,
+        page: "terms",
+    },
+);
+const data = rawData as any;
+
+if (error || !data) {
+    return Astro.redirect("/404");
+}
+
+const title = `Asyncronix | ${data.title}`;
+---
+
+<Layout title={title} lang={lang}>
+    <main class="py-24 bg-white bg-pattern">
+        <div class="max-w-3xl mx-auto px-6">
+            <h1
+                class="text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight mb-4"
+            >
+                {data.title}
+            </h1>
+            <p class="text-sm text-slate-500 mb-12">
+                {data.lastUpdated}
+            </p>
+            <div class="prose prose-slate prose-lg max-w-none text-slate-600">
+                <p>{data.content}</p>
+                <!-- Add more static content as needed here later -->
+                <p class="mt-8 italic opacity-75">
+                    Nota: Esta página está preparada para recibir más contenido
+                    dinámico en el futuro.
+                </p>
+            </div>
+        </div>
+    </main>
+</Layout>

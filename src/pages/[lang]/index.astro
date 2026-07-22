@@ -1,0 +1,48 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { actions } from "astro:actions";
+import type { Lang } from "../../i18n/config.i18n";
+
+// Sections
+import HeroSection from "../../components/home/sections/HeroSection.astro";
+import AboutSection from "../../components/home/sections/AboutSection.astro";
+import FeaturesSection from "../../components/home/sections/FeaturesSection.astro";
+import BenefitsSection from "../../components/home/sections/BenefitsSection.astro";
+import TestimonialsSection from "../../components/home/sections/TestimonialsSection.astro";
+import FAQSection from "../../components/home/sections/FAQSection.astro";
+import CallToActionSection from "../../components/home/sections/CallToActionSection.astro";
+
+const lang = Astro.params.lang as Lang;
+
+const { data, error: homeError } = await Astro.callAction(
+    actions.getPageContent,
+    { lang, page: "home" },
+);
+const homeData = data as any;
+const { data: reviewsData, error: reviewsError } = await Astro.callAction(
+    actions.getReviews,
+    { lang },
+);
+
+if (homeError || !homeData || !homeData.hero) {
+    return Astro.redirect("/404");
+}
+
+const title = `Asyncronix | ${homeData.hero.title}`;
+const description = homeData.hero.subtitle;
+---
+
+<Layout title={title} description={description} lang={lang}>
+    <main>
+        <HeroSection data={homeData.hero} />
+        <AboutSection data={homeData.about} />
+        <FeaturesSection data={homeData.features} />
+        <BenefitsSection data={homeData.benefits} />
+        {
+            reviewsData && reviewsData.length > 0 && (
+                <TestimonialsSection data={homeData} reviews={reviewsData} />
+            )
+        }
+        <FAQSection data={homeData.faq} />
+    </main>
+</Layout>

@@ -1,0 +1,226 @@
+{
+  "es": {
+    "hero": {
+      "title": "Impulsa tu PYME con Asyncronix",
+      "subtitle": "El ERP SaaS en la nube diseñado para escalar y automatizar tu negocio en Latinoamérica.",
+      "ctaPrimary": "Comenzar gratis",
+      "ctaSecondary": "Ver demo"
+    },
+    "about": {
+      "title": "¿Qué es Asyncronix?",
+      "description": "Asyncronix es una plataforma integral (ERP) que centraliza las ventas, inventarios, finanzas y operaciones de tu negocio, permitiéndote tomar el control total desde cualquier lugar."
+    },
+    "features": {
+      "title": "Características Principales",
+      "items": [
+        {
+          "title": "Inventario en tiempo real",
+          "description": "Controla el stock de tus sucursales sin esfuerzo."
+        },
+        {
+          "title": "Facturación y Ventas",
+          "description": "Agiliza tus procesos de cobro y atención al cliente."
+        },
+        {
+          "title": "Reportes Financieros",
+          "description": "Toma decisiones basadas en datos precisos y actualizados."
+        }
+      ]
+    },
+    "benefits": {
+      "title": "Beneficios para tu empresa",
+      "items": [
+        "Automatización de procesos repetitivos.",
+        "Control empresarial total y centralizado.",
+        "Escalabilidad para crecer sin límites.",
+        "Sistema multiempresa y multisucursal."
+      ]
+    },
+    "faq": {
+      "title": "Preguntas Frecuentes",
+      "items": [
+        {
+          "question": "¿Es difícil de implementar?",
+          "answer": "No, nuestro sistema está diseñado para ser intuitivo y contamos con soporte guiado."
+        },
+        {
+          "question": "¿Puedo acceder desde mi celular?",
+          "answer": "Sí, Asyncronix es 100% responsivo y funciona en cualquier dispositivo con internet."
+        }
+      ]
+    },
+    "cta": {
+      "title": "¿Listo para transformar tu negocio?",
+      "subtitle": "Únete a las empresas que ya están optimizando sus operaciones con Asyncronix.",
+      "button": "Crea tu cuenta hoy"
+    }
+  },
+  "en": {
+    "hero": {
+      "title": "Boost your SME with Asyncronix",
+      "subtitle": "The cloud SaaS ERP designed to scale and automate your business in Latin America.",
+      "ctaPrimary": "Start for free",
+      "ctaSecondary": "Watch demo"
+    },
+    "about": {
+      "title": "What is Asyncronix?",
+      "description": "Asyncronix is a comprehensive platform (ERP) that centralizes sales, inventory, finances, and operations, allowing you to take full control from anywhere."
+    },
+    "features": {
+      "title": "Main Features",
+      "items": [
+        {
+          "title": "Real-time inventory",
+          "description": "Control your branch stock effortlessly."
+        },
+        {
+          "title": "Invoicing and Sales",
+          "description": "Streamline your billing and customer service processes."
+        },
+        {
+          "title": "Financial Reports",
+          "description": "Make decisions based on accurate and updated data."
+        }
+      ]
+    },
+    "benefits": {
+      "title": "Benefits for your company",
+      "items": [
+        "Automation of repetitive processes.",
+        "Total and centralized business control.",
+        "Scalability to grow without limits.",
+        "Multi-company and multi-branch system."
+      ]
+    },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "items": [
+        {
+          "question": "Is it difficult to implement?",
+          "answer": "No, our system is designed to be intuitive and we provide guided support."
+        },
+        {
+          "question": "Can I access from my phone?",
+          "answer": "Yes, Asyncronix is 100% responsive and works on any device with internet."
+        }
+      ]
+    },
+    "cta": {
+      "title": "Ready to transform your business?",
+      "subtitle": "Join the companies that are already optimizing their operations with Asyncronix.",
+      "button": "Create your account today"
+    }
+  },
+  "fr": {
+    "hero": {
+      "title": "Boostez votre PME avec Asyncronix",
+      "subtitle": "L'ERP SaaS cloud conçu pour développer et automatiser votre entreprise en Amérique latine.",
+      "ctaPrimary": "Commencer gratuitement",
+      "ctaSecondary": "Voir la démo"
+    },
+    "about": {
+      "title": "Qu'est-ce qu'Asyncronix?",
+      "description": "Asyncronix est une plateforme complète (ERP) qui centralise les ventes, les stocks, les finances et les opérations, vous permettant de prendre le contrôle total depuis n'importe où."
+    },
+    "features": {
+      "title": "Caractéristiques principales",
+      "items": [
+        {
+          "title": "Inventaire en temps réel",
+          "description": "Contrôlez le stock de vos succursales sans effort."
+        },
+        {
+          "title": "Facturation et Ventes",
+          "description": "Rationalisez vos processus de facturation et de service client."
+        },
+        {
+          "title": "Rapports financiers",
+          "description": "Prenez des décisions basées sur des données précises et actualisées."
+        }
+      ]
+    },
+    "benefits": {
+      "title": "Avantages pour votre entreprise",
+      "items": [
+        "Automatisation des processus répétitifs.",
+        "Contrôle commercial total et centralisé.",
+        "Évolutivité pour croître sans limites.",
+        "Système multi-sociétés et multi-succursales."
+      ]
+    },
+    "faq": {
+      "title": "Questions fréquemment posées",
+      "items": [
+        {
+          "question": "Est-ce difficile à mettre en œuvre?",
+          "answer": "Non, notre système est conçu pour être intuitif et nous offrons un support guidé."
+        },
+        {
+          "question": "Puis-je y accéder depuis mon téléphone?",
+          "answer": "Oui, Asyncronix est 100% réactif et fonctionne sur n'importe quel appareil avec internet."
+        }
+      ]
+    },
+    "cta": {
+      "title": "Prêt à transformer votre entreprise?",
+      "subtitle": "Rejoignez les entreprises qui optimisent déjà leurs opérations avec Asyncronix.",
+      "button": "Créez votre compte aujourd'hui"
+    }
+  },
+  "it": {
+    "hero": {
+      "title": "Potenzia la tua PMI con Asyncronix",
+      "subtitle": "L'ERP SaaS cloud progettato per scalare e automatizzare la tua attività in America Latina.",
+      "ctaPrimary": "Inizia gratis",
+      "ctaSecondary": "Guarda la demo"
+    },
+    "about": {
+      "title": "Cos'è Asyncronix?",
+      "description": "Asyncronix è una piattaforma completa (ERP) che centralizza vendite, inventario, finanze e operazioni, consentendoti di assumere il controllo totale da qualsiasi luogo."
+    },
+    "features": {
+      "title": "Caratteristiche Principali",
+      "items": [
+        {
+          "title": "Inventario in tempo reale",
+          "description": "Controlla le scorte delle tue filiali senza sforzo."
+        },
+        {
+          "title": "Fatturazione e Vendite",
+          "description": "Semplifica i processi di fatturazione e servizio clienti."
+        },
+        {
+          "title": "Rapporti Finanziari",
+          "description": "Prendi decisioni basate su dati accurati e aggiornati."
+        }
+      ]
+    },
+    "benefits": {
+      "title": "Vantaggi per la tua azienda",
+      "items": [
+        "Automazione dei processi ripetitivi.",
+        "Controllo aziendale totale e centralizzato.",
+        "Scalabilità per crescere senza limiti.",
+        "Sistema multi-azienda e multi-filiale."
+      ]
+    },
+    "faq": {
+      "title": "Domande Frequenti",
+      "items": [
+        {
+          "question": "È difficile da implementare?",
+          "answer": "No, il nostro sistema è progettato per essere intuitivo e offriamo supporto guidato."
+        },
+        {
+          "question": "Posso accedere dal mio telefono?",
+          "answer": "Sì, Asyncronix è reattivo al 100% e funziona su qualsiasi dispositivo con internet."
+        }
+      ]
+    },
+    "cta": {
+      "title": "Pronto a trasformare la tua attività?",
+      "subtitle": "Unisciti alle aziende che stanno già ottimizzando le loro operazioni con Asyncronix.",
+      "button": "Crea il tuo account oggi"
+    }
+  }
+}

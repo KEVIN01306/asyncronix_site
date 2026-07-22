@@ -1,0 +1,45 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import { actions } from "astro:actions";
+import { LANGUAGES, type Lang } from "../../../i18n/config.i18n";
+import modulesData from "../../../data/modules-content.json";
+import ModuleDetail from "../../../components/modules/sections/ModuleDetail.astro";
+
+export function getStaticPaths() {
+    const paths: { params: { lang: string; slug: string } }[] = [];
+
+    for (const lang of Object.keys(LANGUAGES)) {
+        // @ts-ignore
+        const data = modulesData[lang];
+        if (data && data.modules) {
+            for (const module of data.modules) {
+                paths.push({
+                    params: { lang, slug: module.slug },
+                });
+            }
+        }
+    }
+
+    return paths;
+}
+
+const { lang, slug } = Astro.params;
+
+const { data: moduleData, error: moduleError } = await Astro.callAction(
+    actions.getModuleBySlug,
+    { lang: lang as Lang, slug: slug as string },
+);
+
+if (moduleError || !moduleData) {
+    return Astro.redirect("/404");
+}
+
+const title = `Asyncronix | ${moduleData.name}`;
+const description = moduleData.shortDescription;
+---
+
+<Layout title={title} description={description} lang={lang as Lang}>
+    <main>
+        <ModuleDetail module={moduleData} lang={lang} />
+    </main>
+</Layout>
