@@ -4,10 +4,13 @@ import { actions } from "astro:actions";
 import type { Lang } from "../../i18n/config.i18n";
 
 const lang = Astro.params.lang as Lang;
-const { data: rawData, error } = await Astro.callAction(actions.getPageContent, {
-    lang,
-    page: "privacy",
-});
+const { data: rawData, error } = await Astro.callAction(
+    actions.getPageContent,
+    {
+        lang,
+        page: "privacy",
+    },
+);
 const data = rawData as any;
 
 if (error || !data) {
@@ -15,9 +18,20 @@ if (error || !data) {
 }
 
 const title = `Asyncronix | ${data.title}`;
+
+const schema = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    name: title,
+    url: `https://asyncronix.com/${lang}/privacy`,
+    publisher: {
+        "@type": "Organization",
+        name: "Asyncronix",
+    },
+};
 ---
 
-<Layout title={title} lang={lang}>
+<Layout title={title} lang={lang} canonicalPath="privacy" schema={schema}>
     <main class="py-24 bg-white bg-pattern">
         <div class="max-w-3xl mx-auto px-6">
             <h1

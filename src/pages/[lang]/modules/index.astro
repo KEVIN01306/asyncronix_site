@@ -19,9 +19,21 @@ if (modulesError || !modulesData) {
 
 const title = `Asyncronix | ${contentData.hero.title}`;
 const description = contentData.hero.subtitle;
+
+const schema = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": title,
+    "description": description,
+    "url": `https://asyncronix.com/${lang}/modules`,
+    "publisher": {
+        "@type": "Organization",
+        "name": "Asyncronix"
+    }
+};
 ---
 
-<Layout title={title} description={description} lang={lang}>
+<Layout title={title} description={description} lang={lang} canonicalPath="modules" schema={schema}>
     <main>
         <ModuleGrid modules={modulesData} hero={contentData.hero} lang={lang} />
     </main>

@@ -18,9 +18,20 @@ if (error || !data) {
 }
 
 const title = `Asyncronix | ${data.title}`;
+
+const schema = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": title,
+    "url": `https://asyncronix.com/${lang}/terms`,
+    "publisher": {
+        "@type": "Organization",
+        "name": "Asyncronix"
+    }
+};
 ---
 
-<Layout title={title} lang={lang}>
+<Layout title={title} lang={lang} canonicalPath="terms" schema={schema}>
     <main class="py-24 bg-white bg-pattern">
         <div class="max-w-3xl mx-auto px-6">
             <h1

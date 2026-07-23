@@ -24,9 +24,21 @@ if (aboutError || !aboutData || !aboutData.hero) {
 
 const title = `Asyncronix | ${aboutData.hero.title}`;
 const description = aboutData.hero.subtitle;
+
+const schema = {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    "name": title,
+    "description": description,
+    "url": `https://asyncronix.com/${lang}/about`,
+    "publisher": {
+        "@type": "Organization",
+        "name": "Asyncronix"
+    }
+};
 ---
 
-<Layout title={title} description={description} lang={lang}>
+<Layout title={title} description={description} lang={lang} canonicalPath="about" schema={schema}>
     <main>
         <AboutHeroSection data={aboutData.hero} />
         <TeamValuesSection team={aboutData.team} mission={aboutData.mission} />

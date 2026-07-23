@@ -36,9 +36,22 @@ if (moduleError || !moduleData) {
 
 const title = `Asyncronix | ${moduleData.name}`;
 const description = moduleData.shortDescription;
+
+const schema = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": moduleData.name,
+    "description": moduleData.description,
+    "image": moduleData.image ? `https://asyncronix.com${moduleData.image}` : undefined,
+    "url": `https://asyncronix.com/${lang}/modules/${slug}`,
+    "brand": {
+        "@type": "Brand",
+        "name": "Asyncronix"
+    }
+};
 ---
 
-<Layout title={title} description={description} lang={lang as Lang}>
+<Layout title={title} description={description} lang={lang as Lang} canonicalPath={`modules/${slug}`} schema={schema}>
     <main>
         <ModuleDetail module={moduleData} lang={lang} />
     </main>

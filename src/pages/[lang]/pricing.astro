@@ -20,9 +20,21 @@ if (pricingError || !pricingData || !pricingData.hero) {
 
 const title = `Asyncronix | ${pricingData.hero.title}`;
 const description = pricingData.hero.subtitle;
+
+const schema = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": title,
+    "description": description,
+    "url": `https://asyncronix.com/${lang}/pricing`,
+    "publisher": {
+        "@type": "Organization",
+        "name": "Asyncronix"
+    }
+};
 ---
 
-<Layout title={title} description={description} lang={lang}>
+<Layout title={title} description={description} lang={lang} canonicalPath="pricing" schema={schema}>
     <main>
         <PricingCalculator data={pricingData} />
     </main>

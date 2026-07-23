@@ -7,9 +7,9 @@ import sitemap from '@astrojs/sitemap';
 // 1. Cambiamos Cloudflare por Node.js
 import node from '@astrojs/node';
 import { LANGUAGES } from './src/i18n/config.i18n';
-//import { getAllSitemapUrls } from './src/utils/sitemapUrls.mjs';
+import { getAllSitemapUrls } from './src/utils/sitemapUrls.ts';
 
-//const uniqueUrls = getAllSitemapUrls();
+const uniqueUrls = getAllSitemapUrls();
 
 // https://astro.build/config
 export default defineConfig({
@@ -61,6 +61,6 @@ export default defineConfig({
     changefreq: 'weekly',
     priority: 0.7,
     lastmod: new Date(),
-    customPages: ['www.asyncronix.com', 'app.asyncronix.com']
+    customPages: uniqueUrls
   })]
 });

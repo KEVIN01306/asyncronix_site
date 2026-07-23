@@ -30,9 +30,21 @@ if (homeError || !homeData || !homeData.hero) {
 
 const title = `Asyncronix | ${homeData.hero.title}`;
 const description = homeData.hero.subtitle;
+
+const schema = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Asyncronix",
+    "url": "https://asyncronix.com/",
+    "description": description,
+    "publisher": {
+        "@type": "Organization",
+        "name": "Asyncronix"
+    }
+};
 ---
 
-<Layout title={title} description={description} lang={lang}>
+<Layout title={title} description={description} lang={lang} canonicalPath="" schema={schema}>
     <main>
         <HeroSection data={homeData.hero} />
         <AboutSection data={homeData.about} />
