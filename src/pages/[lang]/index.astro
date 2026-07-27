@@ -34,17 +34,23 @@ const description = homeData.hero.subtitle;
 const schema = {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    "name": "Asyncronix",
-    "url": "https://asyncronix.com/",
-    "description": description,
-    "publisher": {
+    name: "Asyncronix",
+    url: "https://asyncronix.com/",
+    description: description,
+    publisher: {
         "@type": "Organization",
-        "name": "Asyncronix"
-    }
+        name: "Asyncronix",
+    },
 };
 ---
 
-<Layout title={title} description={description} lang={lang} canonicalPath="" schema={schema}>
+<Layout
+    title={title}
+    description={description}
+    lang={lang}
+    canonicalPath=""
+    schema={schema}
+>
     <main>
         <HeroSection data={homeData.hero} />
         <AboutSection data={homeData.about} />
