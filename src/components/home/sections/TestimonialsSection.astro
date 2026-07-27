@@ -2,25 +2,25 @@
 const { data, reviews } = Astro.props;
 ---
 
-<section class="py-24 bg-slate-50 border-t border-slate-100 relative pb-32">
+<section class="py-24 bg-slate-50 dark:bg-slate-900 border-t border-slate-100 dark:border-slate-800 relative pb-32 transition-colors duration-300">
   <div class="max-w-7xl mx-auto px-6 relative z-10">
     <div class="text-center mb-16">
-      <h2 class="text-3xl md:text-5xl font-bold text-slate-900 tracking-tight">
+      <h2 class="text-3xl md:text-5xl font-bold text-slate-900 dark:text-white tracking-tight">
         Testimonios
       </h2>
     </div>
 
     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
       {reviews.map((review: any) => (
-        <div class="glass-card p-8 flex flex-col gap-6 relative group overflow-hidden">
+        <div class="glass-card bg-white/80 dark:bg-slate-800/80 p-8 flex flex-col gap-6 relative group overflow-hidden transition-colors duration-300">
           <div class="absolute top-0 right-0 p-6 opacity-5 group-hover:opacity-10 transition-opacity">
             <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24" fill="currentColor"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1zM15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.999v2c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"/></svg>
           </div>
-          <p class="text-slate-700 leading-relaxed italic z-10 flex-1">"{review.text}"</p>
+          <p class="text-slate-700 dark:text-slate-300 leading-relaxed italic z-10 flex-1">"{review.text}"</p>
           <div class="flex items-center gap-4 z-10">
             <img src={review.avatar} alt={review.name} class="w-12 h-12 rounded-full object-cover border-2 border-[var(--color-secondary)]/30" />
             <div>
-              <p class="font-bold text-slate-900">{review.name}</p>
+              <p class="font-bold text-slate-900 dark:text-white">{review.name}</p>
               <p class="text-sm text-[var(--color-primary)] font-medium">{review.company}</p>
             </div>
           </div>
@@ -32,7 +32,7 @@ const { data, reviews } = Astro.props;
   <!-- Wave Divider -->
   <div class="absolute bottom-0 left-0 w-full overflow-hidden leading-[0]">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none" class="relative block w-full h-[40px] md:h-[80px]">
-        <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V0C6.2,0,12.35,0,18.52,0c85.87,0,172.18,48,252.87,66Z" class="fill-white"></path>
+        <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V0C6.2,0,12.35,0,18.52,0c85.87,0,172.18,48,252.87,66Z" class="fill-white dark:fill-slate-800 transition-colors duration-300"></path>
     </svg>
   </div>
 </section>

@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@custom-variant dark (&:is(.dark *));
 
 @theme {
   --color-primary: #AF25FD;
@@ -68,7 +69,7 @@ html {
 }
 
 body {
-  @apply bg-slate-50 text-slate-900 antialiased overflow-x-hidden;
+  @apply bg-slate-50 text-slate-900 dark:bg-slate-900 dark:text-slate-50 antialiased overflow-x-hidden transition-colors duration-300;
 }
 
 /* Premium gradient utility */
@@ -82,12 +83,12 @@ body {
 }
 
 .btn-secondary {
-  @apply inline-flex items-center justify-center px-6 py-3 text-base font-medium text-slate-700 bg-white border border-slate-200 rounded-full hover:bg-slate-50 hover:text-slate-900 transition-colors shadow-sm hover:shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-slate-500;
+  @apply inline-flex items-center justify-center px-6 py-3 text-base font-medium text-slate-700 bg-white border border-slate-200 rounded-full hover:bg-slate-50 hover:text-slate-900 shadow-sm hover:shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-slate-500 dark:bg-slate-800 dark:text-slate-200 dark:border-slate-700 dark:hover:bg-slate-700 dark:hover:text-white dark:focus:ring-offset-slate-900 transition-colors duration-300;
 }
 
 /* Glassmorphism cards */
 .glass-card {
-  @apply bg-white/80 backdrop-blur-lg border border-white/20 shadow-xl rounded-2xl;
+  @apply bg-white/80 dark:bg-slate-900/80 backdrop-blur-lg border border-white/20 dark:border-slate-800/50 shadow-xl dark:shadow-2xl dark:shadow-slate-900/50 rounded-2xl transition-colors duration-300;
 }
 
 

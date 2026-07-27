@@ -83,8 +83,32 @@ const defaultLink = new URL(`/es${cleanRoute ? `/${cleanRoute}` : ''}`, baseUrl)
 		<ClientRouter />
 
 		{schema && <script type="application/ld+json" set:html={JSON.stringify(schema)} />}
+
+		<!-- Dark mode inline script to prevent FOUC -->
+		<script is:inline>
+			const setDarkMode = () => {
+				const theme = (() => {
+					if (typeof localStorage !== "undefined" && localStorage.getItem("theme")) {
+						return localStorage.getItem("theme");
+					}
+					if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+						return "dark";
+					}
+					return "light";
+				})();
+			
+				if (theme === "light") {
+					document.documentElement.classList.remove("dark");
+				} else {
+					document.documentElement.classList.add("dark");
+				}
+			};
+			
+			setDarkMode();
+			document.addEventListener("astro:after-swap", setDarkMode);
+		</script>
 	</head>
-	<body class="bg-white text-gray-900 antialiased min-h-screen flex flex-col">
+	<body class="bg-slate-50 text-slate-900 dark:bg-slate-900 dark:text-slate-50 antialiased min-h-screen flex flex-col transition-colors duration-300">
 		<Navbar lang={lang} />
 		<main class="flex-1">
 			<slot />

@@ -2,22 +2,22 @@
 const { data } = Astro.props;
 ---
 
-<section class="py-24 bg-slate-50 relative pb-32">
+<section class="py-24 bg-slate-50 dark:bg-slate-900 relative pb-32 transition-colors duration-300">
   <div class="max-w-7xl mx-auto px-6 relative z-10">
     <div class="text-center mb-16">
-      <h2 class="text-3xl md:text-5xl font-bold text-slate-900 tracking-tight">
+      <h2 class="text-3xl md:text-5xl font-bold text-slate-900 dark:text-white tracking-tight">
         {data.title}
       </h2>
     </div>
 
     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
       {data.items.map((item: any, i: number) => (
-        <div class="bg-white rounded-3xl p-8 border border-slate-100 shadow-sm hover:shadow-xl hover:border-slate-200 transition-all duration-300 group">
+        <div class="bg-white dark:bg-slate-800 rounded-3xl p-8 border border-slate-100 dark:border-slate-700 shadow-sm hover:shadow-xl dark:hover:shadow-2xl hover:border-slate-200 dark:hover:border-slate-600 transition-all duration-300 group">
           <div class="w-12 h-12 rounded-xl bg-[var(--color-secondary)]/10 text-[var(--color-primary)] flex items-center justify-center mb-6">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5l10 -10"/></svg>
           </div>
-          <h3 class="text-2xl font-bold text-slate-900 mb-3 group-hover:text-[var(--color-primary)] transition-colors">{item.title}</h3>
-          <p class="text-slate-600 leading-relaxed">{item.description}</p>
+          <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-3 group-hover:text-[var(--color-primary)] dark:group-hover:text-[var(--color-primary)] transition-colors">{item.title}</h3>
+          <p class="text-slate-600 dark:text-slate-400 leading-relaxed">{item.description}</p>
         </div>
       ))}
     </div>
@@ -26,7 +26,7 @@ const { data } = Astro.props;
   <!-- Wave Divider (Flipped) -->
   <div class="absolute bottom-0 left-0 w-full overflow-hidden leading-[0] scale-x-[-1]">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none" class="relative block w-full h-[40px] md:h-[80px]">
-        <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V0C6.2,0,12.35,0,18.52,0c85.87,0,172.18,48,252.87,66Z" class="fill-white"></path>
+        <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V0C6.2,0,12.35,0,18.52,0c85.87,0,172.18,48,252.87,66Z" class="fill-white dark:fill-slate-800 transition-colors duration-300"></path>
     </svg>
   </div>
 </section>

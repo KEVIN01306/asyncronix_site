@@ -11,6 +11,7 @@
         "shortDescription": "Agiliza tu facturación y gestiona tus clientes de forma eficiente.",
         "description": "El módulo de ventas de Asyncronix está diseñado para optimizar el proceso de cobro, permitiendo facturación rápida, manejo de múltiples métodos de pago y un registro detallado del historial de cada cliente.",
         "image": "/images/modules/sales/portada.png",
+        "themeColor": "#10b981",
         "features": [
           "Facturación electrónica",
           "Cortes de caja",
@@ -34,6 +35,7 @@
         "shortDescription": "Controla tus existencias en tiempo real y evita pérdidas.",
         "description": "Mantén un control riguroso de tu mercancía. Con el módulo de inventario puedes gestionar entradas, salidas, traslados entre sucursales y recibir alertas de stock bajo.",
         "image": "/images/modules/inventory/portada.png",
+        "themeColor": "#3b82f6",
         "features": [
           "Control multi-sucursal",
           "Alertas de stock",
@@ -46,9 +48,9 @@
           "Optimiza tus compras a proveedores"
         ],
         "images": [
-          "/images/inventario_1.webp",
-          "/images/inventario_2.webp",
-          "/images/inventario_3.webp"
+          "/images/modules/inventory/carrusel/image_1.png",
+          "/images/modules/inventory/carrusel/image_2.png",
+          "/images/modules/inventory/carrusel/image_3.png"
         ]
       },
       {
@@ -56,7 +58,8 @@
         "name": "Módulo de Taller Mecánico",
         "shortDescription": "Gestiona servicios, vehículos y órdenes de trabajo.",
         "description": "Ideal para negocios de servicio automotriz. Administra historiales de vehículos, asigna mecánicos a órdenes de trabajo y lleva un control de los repuestos utilizados.",
-        "image": "/logo.webp",
+        "image": "/images/modules/workshop/portada.png",
+        "themeColor": "#f59e0b",
         "features": [
           "Órdenes de servicio",
           "Checklist de recepción",
@@ -69,9 +72,9 @@
           "Integración directa con inventario de repuestos"
         ],
         "images": [
-          "/images/taller_1.webp",
-          "/images/taller_2.webp",
-          "/images/taller_3.webp"
+          "/images/modules/workshop/carrusel/image_1.png",
+          "/images/modules/workshop/carrusel/image_2.png",
+          "/images/modules/workshop/carrusel/image_3.png"
         ]
       }
     ]
@@ -87,7 +90,8 @@
         "name": "Sales Module",
         "shortDescription": "Streamline your invoicing and manage your customers efficiently.",
         "description": "The Asyncronix sales module is designed to optimize the checkout process, allowing fast invoicing, handling multiple payment methods, and a detailed record of each customer's history.",
-        "image": "/logo.webp",
+        "image": "/images/modules/sales/portada.png",
+        "themeColor": "#10b981",
         "features": [
           "Electronic invoicing",
           "Cash register cuts",
@@ -100,9 +104,9 @@
           "Total control over daily income"
         ],
         "images": [
-          "/images/ventas_1.webp",
-          "/images/ventas_2.webp",
-          "/images/ventas_3.webp"
+          "/images/modules/sales/carrusel/image_1.png",
+          "/images/modules/sales/carrusel/image_2.png",
+          "/images/modules/sales/carrusel/image_3.png"
         ]
       },
       {
@@ -110,7 +114,8 @@
         "name": "Inventory Module",
         "shortDescription": "Control your stock in real time and avoid losses.",
         "description": "Keep rigorous control of your merchandise. With the inventory module you can manage entries, exits, transfers between branches and receive low stock alerts.",
-        "image": "/logo.webp",
+        "image": "/images/modules/inventory/portada.png",
+        "themeColor": "#3b82f6",
         "features": [
           "Multi-branch control",
           "Stock alerts",
@@ -123,9 +128,9 @@
           "Optimize your purchases from suppliers"
         ],
         "images": [
-          "/images/inventario_1.webp",
-          "/images/inventario_2.webp",
-          "/images/inventario_3.webp"
+          "/images/modules/inventory/carrusel/image_1.png",
+          "/images/modules/inventory/carrusel/image_2.png",
+          "/images/modules/inventory/carrusel/image_3.png"
         ]
       },
       {
@@ -133,7 +138,8 @@
         "name": "Mechanical Workshop Module",
         "shortDescription": "Manage services, vehicles, and work orders.",
         "description": "Ideal for automotive service businesses. Manage vehicle histories, assign mechanics to work orders, and keep track of the spare parts used.",
-        "image": "/logo.webp",
+        "image": "/images/modules/workshop/portada.png",
+        "themeColor": "#f59e0b",
         "features": [
           "Service orders",
           "Reception checklist",
@@ -146,163 +152,9 @@
           "Direct integration with spare parts inventory"
         ],
         "images": [
-          "/images/taller_1.webp",
-          "/images/taller_2.webp",
-          "/images/taller_3.webp"
-        ]
-      }
-    ]
-  },
-  "fr": {
-    "hero": {
-      "title": "Nos Modules",
-      "subtitle": "Découvrez tous les outils qu'Asyncronix a à offrir."
-    },
-    "modules": [
-      {
-        "slug": "ventas",
-        "name": "Module de Vente",
-        "shortDescription": "Rationalisez votre facturation et gérez vos clients efficacement.",
-        "description": "Le module de vente Asyncronix est conçu pour optimiser le processus de paiement, permettant une facturation rapide, la gestion de plusieurs méthodes de paiement et un enregistrement détaillé de l'historique de chaque client.",
-        "image": "/logo.webp",
-        "features": [
-          "Facturation électronique",
-          "Clôtures de caisse",
-          "Historique client",
-          "Devis"
-        ],
-        "benefits": [
-          "Réduit les temps d'attente à la caisse",
-          "Améliore la satisfaction client",
-          "Contrôle total sur les revenus quotidiens"
-        ],
-        "images": [
-          "/images/ventas_1.webp",
-          "/images/ventas_2.webp",
-          "/images/ventas_3.webp"
-        ]
-      },
-      {
-        "slug": "inventario",
-        "name": "Module d'Inventaire",
-        "shortDescription": "Contrôlez votre stock en temps réel et évitez les pertes.",
-        "description": "Gardez un contrôle rigoureux de vos marchandises. Avec le module d'inventaire, vous pouvez gérer les entrées, les sorties, les transferts entre les succursales et recevoir des alertes de stock bas.",
-        "image": "/logo.webp",
-        "features": [
-          "Contrôle multi-succursales",
-          "Alertes de stock",
-          "Kardex produit",
-          "Catégorisation avancée"
-        ],
-        "benefits": [
-          "Éviter les ruptures de stock",
-          "Minimiser les vols ou les pertes",
-          "Optimisez vos achats auprès des fournisseurs"
-        ],
-        "images": [
-          "/images/inventario_1.webp",
-          "/images/inventario_2.webp",
-          "/images/inventario_3.webp"
-        ]
-      },
-      {
-        "slug": "taller",
-        "name": "Module d'Atelier Mécanique",
-        "shortDescription": "Gérez les services, les véhicules et les bons de travail.",
-        "description": "Idéal pour les entreprises de services automobiles. Gérez l'historique des véhicules, affectez des mécaniciens aux bons de travail et suivez les pièces de rechange utilisées.",
-        "image": "/logo.webp",
-        "features": [
-          "Bons de service",
-          "Liste de contrôle de réception",
-          "Historique du véhicule",
-          "Affectation de mécanicien"
-        ],
-        "benefits": [
-          "Une plus grande transparence avec le client",
-          "Contrôle des temps de réparation",
-          "Intégration directe avec l'inventaire des pièces de rechange"
-        ],
-        "images": [
-          "/images/taller_1.webp",
-          "/images/taller_2.webp",
-          "/images/taller_3.webp"
-        ]
-      }
-    ]
-  },
-  "it": {
-    "hero": {
-      "title": "I Nostri Moduli",
-      "subtitle": "Scopri tutti gli strumenti che Asyncronix ha da offrire."
-    },
-    "modules": [
-      {
-        "slug": "ventas",
-        "name": "Modulo Vendite",
-        "shortDescription": "Semplifica la tua fatturazione e gestisci i tuoi clienti in modo efficiente.",
-        "description": "Il modulo di vendita Asyncronix è progettato per ottimizzare il processo di pagamento, consentendo una fatturazione rapida, la gestione di più metodi di pagamento e una registrazione dettagliata della cronologia di ciascun cliente.",
-        "image": "/images/modules/sales/portada.png",
-        "features": [
-          "Fatturazione elettronica",
-          "Chiusure di cassa",
-          "Cronologia clienti",
-          "Preventivi"
-        ],
-        "benefits": [
-          "Riduce i tempi di attesa alla cassa",
-          "Migliora la soddisfazione del cliente",
-          "Controllo totale sul reddito giornaliero"
-        ],
-        "images": [
-          "/images/modules/sales/carrusel/image_1.png",
-          "/images/modules/sales/carrusel/image_2.png",
-          "/images/modules/sales/carrusel/image_3.png"
-        ]
-      },
-      {
-        "slug": "inventario",
-        "name": "Modulo Inventario",
-        "shortDescription": "Controlla le tue scorte in tempo reale ed evita perdite.",
-        "description": "Mantieni un controllo rigoroso della tua merce. Con il modulo inventario puoi gestire entrate, uscite, trasferimenti tra filiali e ricevere avvisi di esaurimento scorte.",
-        "image": "/logo.webp",
-        "features": [
-          "Controllo multi-filiale",
-          "Avvisi sulle scorte",
-          "Kardex prodotto",
-          "Categorizzazione avanzata"
-        ],
-        "benefits": [
-          "Evitare l'esaurimento delle scorte",
-          "Riduci al minimo i furti o le perdite",
-          "Ottimizza i tuoi acquisti dai fornitori"
-        ],
-        "images": [
-          "/images/inventario_1.webp",
-          "/images/inventario_2.webp",
-          "/images/inventario_3.webp"
-        ]
-      },
-      {
-        "slug": "taller",
-        "name": "Modulo Officina Meccanica",
-        "shortDescription": "Gestisci servizi, veicoli e ordini di lavoro.",
-        "description": "Ideale per le aziende di servizi automobilistici. Gestisci la cronologia dei veicoli, assegna i meccanici agli ordini di lavoro e tieni traccia dei pezzi di ricambio utilizzati.",
-        "image": "/logo.webp",
-        "features": [
-          "Ordini di servizio",
-          "Checklist di ricezione",
-          "Cronologia veicolo",
-          "Incarico meccanico"
-        ],
-        "benefits": [
-          "Maggiore trasparenza con il cliente",
-          "Controllo dei tempi di riparazione",
-          "Integrazione diretta con l'inventario dei pezzi di ricambio"
-        ],
-        "images": [
-          "/images/taller_1.webp",
-          "/images/taller_2.webp",
-          "/images/taller_3.webp"
+          "/images/modules/workshop/carrusel/image_1.png",
+          "/images/modules/workshop/carrusel/image_2.png",
+          "/images/modules/workshop/carrusel/image_3.png"
         ]
       }
     ]

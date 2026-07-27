@@ -2,56 +2,114 @@
 const { team, mission } = Astro.props;
 ---
 
-<section class="py-24 bg-white relative bg-pattern">
-  <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
+<section class="py-24 bg-white dark:bg-slate-900 relative bg-pattern overflow-hidden transition-colors duration-300">
+  <div
+    class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 lg:gap-24 items-center"
+  >
+    <!-- Columna Izquierda: Contenido -->
     <div class="flex flex-col gap-10">
       <div>
-        <h2 class="text-3xl font-bold text-slate-900 mb-4">{team.title}</h2>
-        <p class="text-lg text-slate-600 leading-relaxed mb-4">
-          {team.description}
-        </p>
+        <!-- Badge de Ubicación mejorado con indicador "Live" -->
         <div
-          class="inline-flex items-center gap-2 px-4 py-2 bg-slate-50 text-slate-700 font-medium rounded-full border border-slate-200"
+          class="inline-flex items-center gap-2 px-3 py-1.5 bg-slate-50 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-sm font-semibold rounded-full border border-slate-200 dark:border-slate-700 mb-6 transition-colors duration-300"
         >
-          <span>🌎</span>
+          <span class="relative flex h-2.5 w-2.5">
+            <span
+              class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[var(--color-primary)] opacity-75"
+            ></span>
+            <span
+              class="relative inline-flex rounded-full h-2.5 w-2.5 bg-[var(--color-primary)]"
+            ></span>
+          </span>
           {team.location}
         </div>
+
+        <h2
+          class="text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white mb-6 tracking-tight"
+        >
+          {team.title}
+        </h2>
+        <p class="text-lg text-slate-600 dark:text-slate-400 leading-relaxed">
+          {team.description}
+        </p>
       </div>
 
+      <!-- Tarjeta de Misión (Estilo Quote/Destacado Profesional) -->
       <div
-        class="p-8 rounded-[2rem] bg-gradient-to-br from-slate-50 to-slate-100 border border-slate-200 shadow-sm relative overflow-hidden"
+        class="p-8 md:p-10 rounded-3xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm dark:shadow-slate-900/50 relative overflow-hidden group hover:shadow-md dark:hover:shadow-lg transition-all duration-300"
       >
-        <div class="absolute top-0 right-0 p-4 opacity-10">
+        <!-- Acento lateral sutil -->
+        <div
+          class="absolute top-0 left-0 w-1.5 h-full bg-[var(--color-primary)]"
+        >
+        </div>
+
+        <!-- Icono decorativo más elegante -->
+        <div
+          class="absolute top-0 right-0 p-6 opacity-[0.03] dark:opacity-[0.05] text-slate-900 dark:text-white group-hover:scale-110 transition-transform duration-700"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            width="100"
-            height="100"
+            width="120"
+            height="120"
             viewBox="0 0 24 24"
             fill="currentColor"
-            ><path d="M12 2L1 21h22M12 6l7.5 13h-15z"></path></svg
           >
+            <path d="M12 2L1 21h22M12 6l7.5 13h-15z"></path>
+          </svg>
         </div>
-        <h2 class="text-2xl font-bold text-slate-900 mb-4">{mission.title}</h2>
-        <p
-          class="text-lg text-slate-700 leading-relaxed font-medium relative z-10"
-        >
-          {mission.description}
-        </p>
+
+        <div class="relative z-10">
+          <h3
+            class="text-xl font-bold text-slate-900 dark:text-white mb-3 flex items-center gap-2"
+          >
+            <svg
+              class="w-5 h-5 text-[var(--color-primary)]"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+            </svg>
+            {mission.title}
+          </h3>
+          <p class="text-lg text-slate-700 dark:text-slate-300 leading-relaxed font-medium">
+            "{mission.description}"
+          </p>
+        </div>
       </div>
     </div>
 
+    <!-- Columna Derecha: Imagen -->
     <div
-      class="relative w-full aspect-square md:aspect-auto md:h-full md:min-h-[400px]"
+      class="relative w-full aspect-square md:aspect-[4/5] max-h-[600px] group mx-auto max-w-md lg:max-w-none"
     >
+      <!-- Sombra/Offset elegante en lugar del gradiente rotado -->
       <div
-        class="absolute inset-0 bg-gradient-to-tr from-[var(--color-primary)] to-[var(--color-secondary)] opacity-20 rounded-[3rem] -rotate-3 scale-105"
+        class="absolute inset-0 bg-slate-100 dark:bg-slate-800 rounded-3xl translate-x-4 translate-y-4 border border-slate-200 dark:border-slate-700 group-hover:translate-x-6 group-hover:translate-y-6 transition-all duration-500 ease-out"
       >
       </div>
-      <img
-        src="/images/world_asyncronix.webp"
-        alt="Equipo Asyncronix"
-        class="w-full h-full object-cover rounded-[3rem] shadow-xl relative z-10 border-4 border-white hover:scale-[1.1] transition-all duration-700"
-      />
+
+      <!-- Contenedor de la imagen -->
+      <div
+        class="w-full h-full relative z-10 rounded-3xl overflow-hidden border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-sm group-hover:-translate-y-1 group-hover:-translate-x-1 transition-all duration-500 ease-out"
+      >
+        <!-- Overlay sutil para oscurecer ligerísimamente y dar contraste -->
+        <div
+          class="absolute inset-0 bg-slate-900/5 mix-blend-multiply pointer-events-none z-10"
+        >
+        </div>
+
+        <img
+          src="/images/world_asyncronix.webp"
+          alt="Equipo Asyncronix"
+          class="w-full h-full object-cover scale-100 group-hover:scale-105 transition-transform duration-700 ease-out"
+        />
+      </div>
     </div>
   </div>
 </section>

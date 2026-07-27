@@ -50,9 +50,8 @@
           {
             "id": "own",
             "name": "Número Propio",
-            "price": 0,
-            "description": "Permite administrar tus propios mensajes con tu número. Costo adicional según tu proveedor.",
-            "isCustom": true
+            "price": 10,
+            "description": "Permite administrar tus propios mensajes con tu número. Los gastos adicionales (ej. Meta) van a cuenta del negocio."
           }
         ]
       }
@@ -116,9 +115,8 @@
           {
             "id": "own",
             "name": "Own Number",
-            "price": 0,
-            "description": "Manage your own messages. Additional costs depending on your provider.",
-            "isCustom": true
+            "price": 10,
+            "description": "Manage your own messages with your number. Additional costs (e.g. Meta) are covered by the business."
           }
         ]
       }
@@ -129,138 +127,6 @@
       "total": "Monthly Total (USD)",
       "selectPlan": "Select your main plan",
       "selectWhatsapp": "Choose your WhatsApp integration"
-    }
-  },
-  "fr": {
-    "hero": {
-      "title": "Forfaits et Tarifs",
-      "subtitle": "Une tarification transparente qui évolue avec votre entreprise."
-    },
-    "plans": {
-      "base": {
-        "id": "base",
-        "name": "Plan de Base",
-        "price": 34,
-        "features": [
-          "Ventes",
-          "Clients",
-          "Inventaire",
-          "Finances",
-          "Utilisateurs",
-          "Succursales"
-        ]
-      },
-      "store": {
-        "id": "store",
-        "name": "Magasin + Atelier",
-        "price": 40,
-        "features": [
-          "Tout dans le Plan de Base",
-          "Services",
-          "Configuration des services",
-          "Liste de contrôle",
-          "Véhicules"
-        ]
-      }
-    },
-    "addons": {
-      "whatsapp": {
-        "title": "Intégration WhatsApp",
-        "options": [
-          {
-            "id": "none",
-            "name": "Aucune intégration",
-            "price": 0,
-            "description": "Aucun message n'est envoyé."
-          },
-          {
-            "id": "global",
-            "name": "Numéro Global",
-            "price": 12,
-            "description": "Les messages sont envoyés depuis un numéro géré par Asyncronix."
-          },
-          {
-            "id": "own",
-            "name": "Propre Numéro",
-            "price": 0,
-            "description": "Gérez vos propres messages. Coûts supplémentaires selon votre fournisseur.",
-            "isCustom": true
-          }
-        ]
-      }
-    },
-    "calculator": {
-      "subtotal": "Sous-total",
-      "extras": "Extras (WhatsApp)",
-      "total": "Total Mensuel (USD)",
-      "selectPlan": "Sélectionnez votre forfait principal",
-      "selectWhatsapp": "Choisissez votre intégration WhatsApp"
-    }
-  },
-  "it": {
-    "hero": {
-      "title": "Piani e Prezzi",
-      "subtitle": "Prezzi trasparenti che crescono con la tua attività."
-    },
-    "plans": {
-      "base": {
-        "id": "base",
-        "name": "Piano Base",
-        "price": 34,
-        "features": [
-          "Vendite",
-          "Clienti",
-          "Inventario",
-          "Finanze",
-          "Utenti",
-          "Filiali"
-        ]
-      },
-      "store": {
-        "id": "store",
-        "name": "Negozio + Officina",
-        "price": 40,
-        "features": [
-          "Tutto nel Piano Base",
-          "Servizi",
-          "Configurazione servizi",
-          "Lista di controllo",
-          "Veicoli"
-        ]
-      }
-    },
-    "addons": {
-      "whatsapp": {
-        "title": "Integrazione WhatsApp",
-        "options": [
-          {
-            "id": "none",
-            "name": "Nessuna integrazione",
-            "price": 0,
-            "description": "Nessun messaggio inviato."
-          },
-          {
-            "id": "global",
-            "name": "Numero Globale",
-            "price": 12,
-            "description": "I messaggi vengono inviati da un numero gestito da Asyncronix."
-          },
-          {
-            "id": "own",
-            "name": "Numero Proprio",
-            "price": 0,
-            "description": "Gestisci i tuoi messaggi. Costi aggiuntivi in base al tuo provider.",
-            "isCustom": true
-          }
-        ]
-      }
-    },
-    "calculator": {
-      "subtotal": "Subtotale",
-      "extras": "Extra (WhatsApp)",
-      "total": "Totale Mensile (USD)",
-      "selectPlan": "Seleziona il tuo piano principale",
-      "selectWhatsapp": "Scegli l'integrazione WhatsApp"
     }
   }
 }

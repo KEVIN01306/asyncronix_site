@@ -2,10 +2,10 @@
 const { data } = Astro.props;
 ---
 
-<section class="py-24 bg-white relative bg-pattern">
+<section class="py-24 bg-white dark:bg-slate-800 relative bg-pattern transition-colors duration-300">
   <div class="max-w-4xl mx-auto px-6">
     <div class="text-center mb-16">
-      <h2 class="text-3xl md:text-5xl font-bold text-slate-900 tracking-tight">
+      <h2 class="text-3xl md:text-5xl font-bold text-slate-900 dark:text-white tracking-tight">
         {data.title}
       </h2>
     </div>
@@ -13,8 +13,8 @@ const { data } = Astro.props;
     <div class="flex flex-col gap-4">
       {
         data.items.map((faq: any, index: number) => (
-          <details class="group bg-slate-50 border border-slate-100 rounded-2xl [&_summary::-webkit-details-marker]:hidden open:bg-white open:shadow-md transition-all duration-300">
-            <summary class="flex cursor-pointer items-center justify-between gap-4 p-6 font-semibold text-lg text-slate-900">
+          <details class="group bg-slate-50 dark:bg-slate-900/50 border border-slate-100 dark:border-slate-700 rounded-2xl [&_summary::-webkit-details-marker]:hidden open:bg-white dark:open:bg-slate-800 open:shadow-md dark:open:shadow-slate-900/50 transition-all duration-300">
+            <summary class="flex cursor-pointer items-center justify-between gap-4 p-6 font-semibold text-lg text-slate-900 dark:text-white">
               {faq.question}
               <span class="relative h-6 w-6 flex-shrink-0">
                 <svg
@@ -47,7 +47,7 @@ const { data } = Astro.props;
                 </svg>
               </span>
             </summary>
-            <div class="px-6 pb-6 text-slate-600 leading-relaxed">
+            <div class="px-6 pb-6 text-slate-600 dark:text-slate-300 leading-relaxed">
               <p>{faq.answer}</p>
             </div>
           </details>

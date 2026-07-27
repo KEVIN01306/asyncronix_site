@@ -2,15 +2,15 @@
 const { data } = Astro.props;
 ---
 
-<section id="about" class="py-24 bg-white relative overflow-hidden bg-pattern">
+<section id="about" class="py-24 bg-white dark:bg-slate-800 relative overflow-hidden bg-pattern transition-colors duration-300">
   <div class="max-w-7xl mx-auto px-6">
     <div class="text-center max-w-3xl mx-auto mb-16">
       <h2
-        class="text-3xl md:text-5xl font-bold text-slate-900 mb-6 tracking-tight"
+        class="text-3xl md:text-5xl font-bold text-slate-900 dark:text-white mb-6 tracking-tight"
       >
         {data.title}
       </h2>
-      <p class="text-lg md:text-xl text-slate-600 leading-relaxed">
+      <p class="text-lg md:text-xl text-slate-600 dark:text-slate-300 leading-relaxed">
         {data.description}
       </p>
     </div>
@@ -35,7 +35,7 @@ const { data } = Astro.props;
             ><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg
           >
         </div>
-        <h3 class="text-xl font-bold text-slate-900">Seguridad Total</h3>
+        <h3 class="text-xl font-bold text-slate-900 dark:text-white">Seguridad Total</h3>
       </div>
 
       <div
@@ -59,7 +59,7 @@ const { data } = Astro.props;
             ></path>
           </svg>
         </div>
-        <h3 class="text-xl font-bold text-slate-900">100% en la Nube</h3>
+        <h3 class="text-xl font-bold text-slate-900 dark:text-white">100% en la Nube</h3>
       </div>
 
       <div
@@ -82,7 +82,7 @@ const { data } = Astro.props;
             ></path></svg
           >
         </div>
-        <h3 class="text-xl font-bold text-slate-900">Actualizaciones</h3>
+        <h3 class="text-xl font-bold text-slate-900 dark:text-white">Actualizaciones</h3>
       </div>
     </div>
 
@@ -95,7 +95,7 @@ const { data } = Astro.props;
       >
         <path
           d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V0C6.2,0,12.35,0,18.52,0c85.87,0,172.18,48,252.87,66Z"
-          class="fill-white"></path>
+          class="fill-white dark:fill-slate-900 transition-colors duration-300"></path>
       </svg>
     </div>
   </div>

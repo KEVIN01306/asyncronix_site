@@ -2,64 +2,84 @@
 const { modules, hero, lang } = Astro.props;
 ---
 
-<section class="py-24 bg-white relative bg-pattern">
+<section class="py-24 bg-white dark:bg-slate-900 relative bg-pattern overflow-hidden transition-colors duration-300">
   <div class="max-w-7xl mx-auto px-6">
-    <div class="text-center mb-16">
-      <h1
-        class="text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight mb-4"
-      >
+    
+    <!-- Hero Modules Section -->
+    <div class="text-center max-w-3xl mx-auto mb-32">
+      <h1 class="text-5xl md:text-6xl font-extrabold text-slate-900 dark:text-white tracking-tight mb-6">
         {hero.title}
       </h1>
-      <p class="text-xl text-slate-600">
+      <p class="text-xl text-slate-600 dark:text-slate-400 leading-relaxed">
         {hero.subtitle}
       </p>
     </div>
 
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+    <!-- Stack of Full-Width Modules -->
+    <div class="flex flex-col gap-32">
       {
-        modules.map((module: any) => (
-          <a
-            href={`/${lang}/modules/${module.slug}`}
-            class="group flex flex-col h-full bg-slate-50 rounded-[2rem] p-2 border border-slate-100 hover:border-[var(--color-primary)]/30 hover:shadow-xl transition-all duration-300"
-          >
-            <div class="w-full aspect-[4/3] rounded-[1.5rem] overflow-hidden bg-white mb-6 p-8 flex items-center justify-center relative">
-              <div class="absolute inset-0 bg-gradient-to-br from-[var(--color-secondary)]/10 to-[var(--color-primary)]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              <img
-                src={module.image}
-                alt={module.name}
-                class="w-full h-full object-contain relative z-10 group-hover:scale-105 transition-transform duration-500"
-              />
-            </div>
-            <div class="px-6 pb-8 flex-1 flex flex-col">
-              <h3 class="text-2xl font-bold text-slate-900 mb-3 group-hover:text-[var(--color-primary)] transition-colors">
-                {module.name}
-              </h3>
-              <p class="text-slate-600 leading-relaxed flex-1">
-                {module.shortDescription}
-              </p>
-              <div class="mt-6 flex items-center gap-2 text-[var(--color-primary)] font-semibold">
-                Ver detalle
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  class="group-hover:translate-x-1 transition-transform"
+        modules.map((module: any, index: number) => {
+          const isEven = index % 2 === 0;
+          return (
+            <div class={`flex flex-col ${isEven ? 'lg:flex-row' : 'lg:flex-row-reverse'} gap-12 lg:gap-20 items-center scroll-mt-24`} id={`module-${module.slug}`}>
+              
+              <!-- Content -->
+              <div class="flex-1 flex flex-col items-start text-left">
+                <h2 class="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-6">
+                  {module.name}
+                </h2>
+                <p class="text-xl text-slate-600 dark:text-slate-300 leading-relaxed mb-8">
+                  {module.shortDescription}
+                </p>
+                <p class="text-slate-600 dark:text-slate-400 leading-relaxed mb-10 line-clamp-3">
+                  {module.description}
+                </p>
+                
+                <a
+                  href={`/${lang}/modules/${module.slug}`}
+                  class="group relative inline-flex items-center justify-center gap-3 px-8 py-4 bg-slate-900 dark:bg-slate-800 text-white rounded-full overflow-hidden transition-transform hover:scale-105"
+                  style={`--hover-color: ${module.themeColor || 'var(--color-primary)'}`}
                 >
-                  <>
+                  <div class="absolute inset-0 bg-[var(--hover-color)] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <span class="relative z-10 font-semibold text-lg">Ver detalles</span>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="relative z-10 group-hover:translate-x-1 transition-transform"
+                  >
                     <path d="M5 12h14" />
                     <path d="m12 5 7 7-7 7" />
-                  </>
-                </svg>
+                  </svg>
+                </a>
               </div>
+
+              <!-- Image Container (Horizontal Rectangular) -->
+              <div class="flex-1 w-full">
+                <a href={`/${lang}/modules/${module.slug}`} class="block relative group w-full">
+                  <!-- Decorative Background Pattern -->
+                  <div 
+                    class="absolute inset-0 opacity-20 group-hover:opacity-30 transition-opacity duration-500"
+                    style={`background: radial-gradient(circle at center, ${module.themeColor || 'var(--color-primary)'} 0%, transparent 70%);`}
+                  />
+                  
+                  <img
+                    src={module.image}
+                    alt={module.name}
+                    class="w-full h-full object-contain p-2 relative z-10 group-hover:scale-105 transition-transform duration-700 ease-out"
+                  />
+                </a>
+              </div>
+              
             </div>
-          </a>
-        ))
+          );
+        })
       }
     </div>
   </div>

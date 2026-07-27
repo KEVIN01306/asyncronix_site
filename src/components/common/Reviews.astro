@@ -18,16 +18,16 @@ const reviews = Astro.props.reviews as ReviewsProps['reviews'];
 
 <div class="w-full max-w-6xl mx-auto py-12 px-1 sm:px-6 lg:px-8 font-sans">
     <header class="text-center mb-12 flex flex-col items-center justify-center">
-        <h2 class="font-bold text-4xl text-gray-900 mb-6">{title}</h2>
+        <h2 class="font-bold text-4xl text-gray-900 dark:text-white mb-6">{title}</h2>
         
         <div class="flex flex-col items-center gap-2">
             <div class="flex items-center gap-2 text-xl">
-                <span class="font-bold text-black tracking-tight">amazon</span>
-                <span class="text-gray-900 font-medium">Review</span>
+                <span class="font-bold text-black dark:text-white tracking-tight">amazon</span>
+                <span class="text-gray-900 dark:text-slate-300 font-medium">Review</span>
             </div>
             
             <div class="flex items-center gap-2 mt-1">
-                <span class="font-bold text-xl text-gray-900">4.89</span>
+                <span class="font-bold text-xl text-gray-900 dark:text-white">4.89</span>
                 <div class="flex text-yellow-400 gap-0.5">
                     {Array.from({ length: 5 }).map(() => (
                         <svg class="w-6 h-6 fill-current" viewBox="0 0 20 20">
@@ -42,7 +42,7 @@ const reviews = Astro.props.reviews as ReviewsProps['reviews'];
 
     <div class="relative group review-carousel-container w-full">
         
-        <button class="prev-btn absolute left-2 lg:-left-6 top-1/2 -translate-y-1/2 -ml-4 lg:-ml-6 z-10 bg-white rounded-full p-2 shadow-[0_2px_8px_rgba(0,0,0,0.1)] text-red-500 hover:bg-gray-50 hover:scale-105 transition-all focus:outline-none" aria-label="Anterior">
+        <button class="prev-btn absolute left-2 lg:-left-6 top-1/2 -translate-y-1/2 -ml-4 lg:-ml-6 z-10 bg-white dark:bg-slate-800 rounded-full p-2 shadow-[0_2px_8px_rgba(0,0,0,0.1)] dark:shadow-[0_2px_8px_rgba(0,0,0,0.5)] text-red-500 hover:bg-gray-50 dark:hover:bg-slate-700 hover:scale-105 transition-all focus:outline-none" aria-label="Anterior">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7" />
             </svg>
@@ -50,16 +50,16 @@ const reviews = Astro.props.reviews as ReviewsProps['reviews'];
 
         <div class="review-track w-full flex overflow-x-hidden snap-x snap-mandatory gap-6 pb-8 pt-4 px-2 no-scrollbar scroll-smooth">
             {reviews?.map((review) => (
-                <div class="snap-center shrink-0 w-[340px] md:w-[380px] bg-white border border-gray-100 rounded-[32px] p-8 shadow-[0_4px_24px_-8px_rgba(0,0,0,0.08)] flex flex-col justify-between">
+                <div class="snap-center shrink-0 w-[340px] md:w-[380px] bg-white dark:bg-slate-800 border border-gray-100 dark:border-slate-700 rounded-[32px] p-8 shadow-[0_4px_24px_-8px_rgba(0,0,0,0.08)] dark:shadow-[0_4px_24px_-8px_rgba(0,0,0,0.4)] flex flex-col justify-between transition-colors duration-300">
                     <div>
                         <!-- Info del usuario -->
                         <div class="flex items-center gap-3 mb-6">
-                                <div class="w-12 h-12 rounded-full bg-gray-200 flex items-center justify-center text-gray-500 font-bold text-xl">
+                                <div class="w-12 h-12 rounded-full bg-gray-200 dark:bg-slate-700 flex items-center justify-center text-gray-500 dark:text-slate-400 font-bold text-xl">
                                     {review.name.charAt(0)}
                                 </div>
                             <div class="flex flex-col">
-                                <h3 class="font-bold text-gray-900 text-[15px] leading-tight">{review.name}</h3>
-                                <p class="text-[13px] text-gray-500 mt-0.5">{review.date}</p>
+                                <h3 class="font-bold text-gray-900 dark:text-white text-[15px] leading-tight">{review.name}</h3>
+                                <p class="text-[13px] text-gray-500 dark:text-slate-400 mt-0.5">{review.date}</p>
                             </div>
                         </div>
 
@@ -78,7 +78,7 @@ const reviews = Astro.props.reviews as ReviewsProps['reviews'];
                             </div>
                         </div>
 
-                        <p class="text-[15px] text-gray-800 leading-relaxed font-medium">
+                        <p class="text-[15px] text-gray-800 dark:text-slate-300 leading-relaxed font-medium">
                             {review.comment}
                         </p>
                     </div>
@@ -87,7 +87,7 @@ const reviews = Astro.props.reviews as ReviewsProps['reviews'];
             ))}
         </div>
 
-        <button class="next-btn absolute right-2 lg:-right-6 top-1/2 -translate-y-1/2 -mr-4 lg:-mr-6 z-10 bg-white rounded-full p-2 shadow-[0_2px_8px_rgba(0,0,0,0.1)] text-red-500 hover:bg-gray-50 hover:scale-105 transition-all focus:outline-none" aria-label="Siguiente">
+        <button class="next-btn absolute right-2 lg:-right-6 top-1/2 -translate-y-1/2 -mr-4 lg:-mr-6 z-10 bg-white dark:bg-slate-800 rounded-full p-2 shadow-[0_2px_8px_rgba(0,0,0,0.1)] dark:shadow-[0_2px_8px_rgba(0,0,0,0.5)] text-red-500 hover:bg-gray-50 dark:hover:bg-slate-700 hover:scale-105 transition-all focus:outline-none" aria-label="Siguiente">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7" />
             </svg>

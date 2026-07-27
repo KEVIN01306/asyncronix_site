@@ -28,35 +28,5 @@
       "title": "Our Mission",
       "description": "We are passionate about creating tools that improve productivity and business management, democratizing access to top-tier technology for SMEs across Latin America."
     }
-  },
-  "fr": {
-    "hero": {
-      "title": "À propos de nous",
-      "subtitle": "Nous sommes une équipe passionnée par la technologie et l'efficacité commerciale."
-    },
-    "team": {
-      "title": "Notre Équipe",
-      "description": "Nous sommes un groupe de collaborateurs spécialisés dans le développement de logiciels, les architectures évolutives, les systèmes multi-locataires et l'automatisation des affaires.",
-      "location": "Originaires du Guatemala, avec une vision globale."
-    },
-    "mission": {
-      "title": "Notre Mission",
-      "description": "Nous sommes passionnés par la création d'outils qui améliorent la productivité et la gestion d'entreprise, en démocratisant l'accès à une technologie de premier plan pour les PME d'Amérique latine."
-    }
-  },
-  "it": {
-    "hero": {
-      "title": "Chi Siamo",
-      "subtitle": "Siamo un team appassionato di tecnologia ed efficienza aziendale."
-    },
-    "team": {
-      "title": "Il Nostro Team",
-      "description": "Siamo un gruppo di collaboratori specializzati nello sviluppo di software, architetture scalabili, sistemi multi-tenant e automazione aziendale.",
-      "location": "Originari del Guatemala, con una visione globale."
-    },
-    "mission": {
-      "title": "La Nostra Missione",
-      "description": "Siamo appassionati nella creazione di strumenti che migliorano la produttività e la gestione aziendale, democratizzando l'accesso alla tecnologia di alto livello per le PMI in tutta l'America Latina."
-    }
   }
 }
