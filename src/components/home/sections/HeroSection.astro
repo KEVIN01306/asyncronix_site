@@ -1,5 +1,32 @@
 ---
 const { data } = Astro.props;
+
+// Lista dinámica de imágenes del Hero (Puedes agregar o quitar imágenes y el carrusel se adaptará)
+const heroImages = [
+  "/images/portada_1.png",
+  "/images/portada_2.png",
+  "/images/portada_3.png",
+];
+
+const N = heroImages.length;
+const slides = N > 1 ? [...heroImages, heroImages[0]] : heroImages; // Clonamos la primera al final para el loop infinito
+
+let keyframes = "";
+if (N > 1) {
+  const stepPercent = 100 / N;
+  const transitionPercent = 5; // 5% del tiempo total para el movimiento
+  for (let i = 0; i <= N; i++) {
+    const startHold = i * stepPercent;
+    const endHold = startHold + stepPercent - transitionPercent;
+    const translateVal = -(i * 100) / (N + 1);
+
+    if (i < N) {
+      keyframes += `    ${startHold}%, ${endHold}% { transform: translateX(${translateVal}%); }\n`;
+    } else {
+      keyframes += `    100% { transform: translateX(${translateVal}%); }\n`;
+    }
+  }
+}
 ---
 
 <section class="relative pt-24 pb-32 lg:pt-36 lg:pb-40 overflow-hidden">
@@ -65,23 +92,34 @@ const { data } = Astro.props;
     </div>
 
     <div
-      class="relative group mx-auto w-full max-w-[500px] lg:max-w-full animate-fade-in"
+      class="relative mx-auto w-full max-w-[600px] lg:max-w-none lg:w-[115%] lg:-mr-[15%] z-10 animate-fade-in overflow-hidden"
       style="animation-delay: 0.5s;"
     >
-      <div
-        class="absolute inset-0 bg-gradient-to-r from-[var(--color-secondary)] to-[var(--color-primary)] blur-2xl opacity-20 group-hover:opacity-40 transition-opacity duration-700 rounded-[3rem]"
-      >
-      </div>
-      <div class="relative glass-card p-4 rounded-[2.5rem]">
-        <img
-          src="/images/portada.png"
-          alt="Asyncronix Dashboard Mockup"
-          class="relative w-full h-auto object-cover rounded-2xl animate-float"
-        />
-      </div>
-      <div
-        class="absolute -bottom-10 left-1/2 -translate-x-1/2 w-3/4 h-6 bg-slate-900/10 blur-xl rounded-full animate-shadow"
-      >
+      <!-- Contenedor del Carrusel -->
+      <div class="relative w-full aspect-[4/3] md:aspect-[16/10]">
+        <!-- Wrapper para que toda la pista flote -->
+        <div class="absolute top-0 left-0 h-full w-full animate-float">
+          <!-- Track del carrusel que se desliza lateralmente -->
+          <div
+            class={`h-full flex ${N > 1 ? "slider-track" : ""}`}
+            style={`width: ${slides.length * 100}%;`}
+          >
+            {
+              slides.map((img, idx) => (
+                <div
+                  class="h-full relative"
+                  style={`width: ${100 / slides.length}%;`}
+                >
+                  <img
+                    src={img}
+                    alt={`Asyncronix Dashboard ${idx + 1}`}
+                    class="w-full h-full object-contain"
+                  />
+                </div>
+              ))
+            }
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -100,4 +138,17 @@ const { data } = Astro.props;
       ></path>
     </svg>
   </div>
-</section>
+{
+  N > 1 && (
+    <style
+      set:html={`
+    @keyframes slideCarousel {
+  ${keyframes}
+    }
+    .slider-track {
+      animation: slideCarousel ${N * 6}s infinite ease-in-out;
+    }
+  `}
+    />
+  )
+}
