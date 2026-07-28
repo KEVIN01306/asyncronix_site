@@ -138,10 +138,10 @@ if (N > 1) {
       ></path>
     </svg>
   </div>
-{
-  N > 1 && (
-    <style
-      set:html={`
+  {
+    N > 1 && (
+      <style
+        set:html={`
     @keyframes slideCarousel {
   ${keyframes}
     }
@@ -149,6 +149,7 @@ if (N > 1) {
       animation: slideCarousel ${N * 6}s infinite ease-in-out;
     }
   `}
-    />
-  )
-}
+      />
+    )
+  }
+</section>
