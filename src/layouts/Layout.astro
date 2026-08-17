@@ -26,21 +26,24 @@ const {
 
 const baseUrl = "https://asyncronix.com";
 
-// If canonicalPath is provided (e.g. 'about', 'modules/ventas', ''), use it.
-// Otherwise, extract the route from the current URL by removing the language prefix.
-const baseRoute = canonicalPath !== undefined 
-	? canonicalPath 
-	: Astro.url.pathname.replace(/^\/[a-z]{2}(\/|$)/, '');
-const cleanRoute = baseRoute.startsWith('/') ? baseRoute.slice(1) : baseRoute;
+const baseRoute =
+	canonicalPath !== undefined
+		? canonicalPath
+		: Astro.url.pathname.replace(/^\/[a-z]{2}(\/|$)/, "");
+const cleanRoute = baseRoute.startsWith("/") ? baseRoute.slice(1) : baseRoute;
 
-const canonicalURL = new URL(`/${lang}${cleanRoute ? `/${cleanRoute}` : ''}`, baseUrl).href;
+const canonicalURL = new URL(
+	`/${lang}${cleanRoute ? `/${cleanRoute}` : ""}`,
+	baseUrl,
+).href;
 const socialImageURL = new URL(image, Astro.url.origin).href;
 
 const alternateLinks = Object.keys(LANGUAGES).map((l) => ({
 	lang: l,
-	url: new URL(`/${l}${cleanRoute ? `/${cleanRoute}` : ''}`, baseUrl).href
+	url: new URL(`/${l}${cleanRoute ? `/${cleanRoute}` : ""}`, baseUrl).href,
 }));
-const defaultLink = new URL(`/es${cleanRoute ? `/${cleanRoute}` : ''}`, baseUrl).href;
+const defaultLink = new URL(`/es${cleanRoute ? `/${cleanRoute}` : ""}`, baseUrl)
+	.href;
 ---
 
 <!doctype html>
@@ -49,16 +52,18 @@ const defaultLink = new URL(`/es${cleanRoute ? `/${cleanRoute}` : ''}`, baseUrl)
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<meta name="generator" content={Astro.generator} />
-		<meta name="theme-color" content="#ffffff" /> 
+		<meta name="theme-color" content="#ffffff" />
 		<link rel="icon" type="image/webp" href="/icon.webp" />
 		<title>{title}</title>
 		<meta name="description" content={description} />
 		<meta name="robots" content="index, follow" />
 
 		<link rel="canonical" href={canonicalURL} />
-		{alternateLinks.map(({ lang: l, url }) => (
-			<link rel="alternate" hreflang={l} href={url} />
-		))}
+		{
+			alternateLinks.map(({ lang: l, url }) => (
+				<link rel="alternate" hreflang={l} href={url} />
+			))
+		}
 		<link rel="alternate" hreflang="x-default" href={defaultLink} />
 
 		<meta property="og:type" content="website" />
@@ -82,33 +87,48 @@ const defaultLink = new URL(`/es${cleanRoute ? `/${cleanRoute}` : ''}`, baseUrl)
 
 		<ClientRouter />
 
-		{schema && <script type="application/ld+json" set:html={JSON.stringify(schema)} />}
+		{
+			schema && (
+				<script
+					type="application/ld+json"
+					set:html={JSON.stringify(schema)}
+				/>
+			)
+		}
 
 		<!-- Dark mode inline script to prevent FOUC -->
 		<script is:inline>
 			const setDarkMode = () => {
 				const theme = (() => {
-					if (typeof localStorage !== "undefined" && localStorage.getItem("theme")) {
+					if (
+						typeof localStorage !== "undefined" &&
+						localStorage.getItem("theme")
+					) {
 						return localStorage.getItem("theme");
 					}
-					if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+					if (
+						window.matchMedia("(prefers-color-scheme: dark)")
+							.matches
+					) {
 						return "dark";
 					}
 					return "light";
 				})();
-			
+
 				if (theme === "light") {
 					document.documentElement.classList.remove("dark");
 				} else {
 					document.documentElement.classList.add("dark");
 				}
 			};
-			
+
 			setDarkMode();
 			document.addEventListener("astro:after-swap", setDarkMode);
 		</script>
 	</head>
-	<body class="bg-slate-50 text-slate-900 dark:bg-slate-900 dark:text-slate-50 antialiased min-h-screen flex flex-col transition-colors duration-300">
+	<body
+		class="bg-slate-50 text-slate-900 dark:bg-slate-900 dark:text-slate-50 antialiased min-h-screen flex flex-col transition-colors duration-300"
+	>
 		<Navbar lang={lang} />
 		<main class="flex-1">
 			<slot />
