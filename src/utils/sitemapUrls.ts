@@ -26,7 +26,7 @@ export const generateCoreUrls = (): string[] => {
  */
 export const generateModuleUrls = (): string[] => {
     const urls: string[] = [];
-    
+
     // We assume modules are structurally the same across languages, so we extract from 'es'
     const esData = (modulesData as any).es;
     if (!esData || !esData.modules) return urls;
@@ -48,9 +48,9 @@ export const generateModuleUrls = (): string[] => {
 export const getAllSitemapUrls = (): string[] => {
     const coreUrls = generateCoreUrls();
     const moduleUrls = generateModuleUrls();
-    
+
     const combined = [...coreUrls, ...moduleUrls];
-    
+
     // Return unique URLs just in case
     return Array.from(new Set(combined));
 };
