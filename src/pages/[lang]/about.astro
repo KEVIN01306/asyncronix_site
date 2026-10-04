@@ -24,21 +24,65 @@ if (aboutError || !aboutData || !aboutData.hero) {
 
 const title = `Asyncronix | ${aboutData.hero.title}`;
 const description = aboutData.hero.subtitle;
+const aboutUrl = `https://asyncronix.com/${lang}/about`;
 
 const schema = {
     "@context": "https://schema.org",
-    "@type": "AboutPage",
-    "name": title,
-    "description": description,
-    "url": `https://asyncronix.com/${lang}/about`,
-    "publisher": {
-        "@type": "Organization",
-        "name": "Asyncronix"
-    }
+    "@graph": [
+        {
+            "@type": "AboutPage",
+            "@id": `${aboutUrl}#webpage`,
+            url: aboutUrl,
+            name: title,
+            description: description,
+            isPartOf: {
+                "@type": "WebSite",
+                "@id": "https://asyncronix.com/#website",
+            },
+            about: {
+                "@id": "https://asyncronix.com/#organization",
+            },
+        },
+        {
+            "@type": "Organization",
+            "@id": "https://asyncronix.com/#organization",
+            name: "Asyncronix",
+            url: "https://asyncronix.com",
+            logo: "https://asyncronix.com/icon.webp",
+            description: description,
+            // Perfiles oficiales para consolidar la entidad en el Knowledge Graph
+            sameAs: [
+                "https://www.linkedin.com/company/asyncronix", // Ajusta con tus redes reales
+                "https://github.com/asyncronix",
+                "https://x.com/asyncronix",
+            ],
+            // Opcional pero recomendado si mencionas al creador o equipo en la página:
+            founder: {
+                "@type": "Person",
+                name: "Kevin Eduardo Sánchez", // O tu nombre/alias profesional
+                sameAs: [
+                    "https://www.linkedin.com/in/tu-perfil",
+                    "https://github.com/tu-usuario",
+                ],
+            },
+            knowsAbout: [
+                "ERP Software",
+                "Inventory Management Systems",
+                "Workshop Management Software",
+                "Cloud SaaS Solutions",
+            ],
+        },
+    ],
 };
 ---
 
-<Layout title={title} description={description} lang={lang} canonicalPath="about" schema={schema}>
+<Layout
+    title={title}
+    description={description}
+    lang={lang}
+    canonicalPath="about"
+    schema={schema}
+>
     <main>
         <AboutHeroSection data={aboutData.hero} />
         <TeamValuesSection team={aboutData.team} mission={aboutData.mission} />

@@ -35,23 +35,99 @@ if (moduleError || !moduleData) {
 }
 
 const title = `Asyncronix | ${moduleData.name}`;
-const description = moduleData.shortDescription;
+const description = moduleData.shortDescription || moduleData.description;
+const pageUrl = `https://asyncronix.com/${lang}/modules/${slug}`;
+const imageUrl = moduleData.image
+    ? moduleData.image.startsWith("http")
+        ? moduleData.image
+        : `https://asyncronix.com${moduleData.image}`
+    : "https://asyncronix.com/icon.webp";
 
 const schema = {
     "@context": "https://schema.org",
-    "@type": "Product",
-    "name": moduleData.name,
-    "description": moduleData.description,
-    "image": moduleData.image ? `https://asyncronix.com${moduleData.image}` : undefined,
-    "url": `https://asyncronix.com/${lang}/modules/${slug}`,
-    "brand": {
-        "@type": "Brand",
-        "name": "Asyncronix"
-    }
+    "@graph": [
+        // 1. Miga de pan (Breadcrumb) para Google y navegación estructural
+        {
+            "@type": "BreadcrumbList",
+            "@id": `${pageUrl}#breadcrumb`,
+            itemListElement: [
+                {
+                    "@type": "ListItem",
+                    position: 1,
+                    name: "Asyncronix",
+                    item: `https://asyncronix.com/${lang}`,
+                },
+                {
+                    "@type": "ListItem",
+                    position: 2,
+                    name: lang === "es" ? "Módulos" : "Modules",
+                    item: `https://asyncronix.com/${lang}/modules`,
+                },
+                {
+                    "@type": "ListItem",
+                    position: 3,
+                    name: moduleData.name,
+                    item: pageUrl,
+                },
+            ],
+        },
+        // 2. La página web como entidad documental
+        {
+            "@type": "WebPage",
+            "@id": `${pageUrl}#webpage`,
+            url: pageUrl,
+            name: title,
+            description: description,
+            isPartOf: {
+                "@type": "WebSite",
+                "@id": "https://asyncronix.com/#website",
+            },
+            breadcrumb: {
+                "@id": `${pageUrl}#breadcrumb`,
+            },
+        },
+        // 3. El Módulo en sí como Software/Producto
+        {
+            "@type": ["SoftwareApplication", "Product"],
+            "@id": `${pageUrl}#module`,
+            name: `Módulo ${moduleData.name} - Asyncronix`,
+            description: moduleData.description || description,
+            image: imageUrl,
+            url: pageUrl,
+            applicationCategory: "BusinessApplication",
+            operatingSystem: "All, Web",
+            brand: {
+                "@type": "Brand",
+                name: "Asyncronix",
+            },
+            // Si el objeto moduleData tiene una lista de características/bullets:
+            ...(moduleData.features && Array.isArray(moduleData.features)
+                ? {
+                      featureList: moduleData.features.map((f: any) =>
+                          typeof f === "string" ? f : f.title || f.name,
+                      ),
+                  }
+                : {}),
+            offers: {
+                "@type": "Offer",
+                price: "0",
+                priceCurrency: "USD",
+                availability: "https://schema.org/InStock",
+                url: `https://asyncronix.com/${lang}/pricing`,
+            },
+        },
+    ],
 };
 ---
 
-<Layout title={title} description={description} lang={lang as Lang} canonicalPath={`modules/${slug}`} schema={schema}>
+<Layout
+    title={title}
+    description={description}
+    image={moduleData.image || "/icon.webp"}
+    lang={lang as Lang}
+    canonicalPath={`modules/${slug}`}
+    schema={schema}
+>
     <main>
         <ModuleDetail module={moduleData} lang={lang} />
     </main>

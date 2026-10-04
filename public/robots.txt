@@ -1,0 +1,23 @@
+User-agent: *
+Allow: /
+
+# Rastreadores de Búsqueda con IA
+User-agent: Googlebot
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+Sitemap: https://asyncronix.com/sitemap-index.xml

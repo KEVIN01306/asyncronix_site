@@ -6,7 +6,7 @@ import ModuleGrid from "../../../components/modules/sections/ModuleGrid.astro";
 import data from "../../../data/modules-content.json";
 
 const lang = Astro.params.lang as Lang;
-const contentData = data[lang]; // Temporary fallback since action doesn't return hero
+const contentData = data[lang];
 
 const { data: modulesData, error: modulesError } = await Astro.callAction(
     actions.getModules,
@@ -19,21 +19,64 @@ if (modulesError || !modulesData) {
 
 const title = `Asyncronix | ${contentData.hero.title}`;
 const description = contentData.hero.subtitle;
+const modulesUrl = `https://asyncronix.com/${lang}/modules`;
+
+// Mapeo estructurado de cada módulo individual para la IA y Google
+const moduleItems = (modulesData as any[]).map((mod: any, index: number) => ({
+    "@type": "ListItem",
+    position: index + 1,
+    item: {
+        "@type": "SoftwareApplication",
+        name: mod.name || mod.title,
+        description: mod.description || mod.summary || "",
+        applicationCategory: "BusinessApplication",
+        operatingSystem: "All, Web",
+        // Si cada módulo tiene su propia vista de detalle o ancla en la página:
+        url: mod.slug
+            ? `${modulesUrl}/${mod.slug}`
+            : `${modulesUrl}#${mod.id || index + 1}`,
+    },
+}));
 
 const schema = {
     "@context": "https://schema.org",
-    "@type": "CollectionPage",
-    "name": title,
-    "description": description,
-    "url": `https://asyncronix.com/${lang}/modules`,
-    "publisher": {
-        "@type": "Organization",
-        "name": "Asyncronix"
-    }
+    "@graph": [
+        {
+            "@type": "CollectionPage",
+            "@id": `${modulesUrl}#webpage`,
+            url: modulesUrl,
+            name: title,
+            description: description,
+            isPartOf: {
+                "@type": "WebSite",
+                "@id": "https://asyncronix.com/#website",
+            },
+            mainEntity: {
+                "@type": "ItemList",
+                itemListElement: moduleItems,
+            },
+        },
+        {
+            "@type": "SoftwareApplication",
+            "@id": "https://asyncronix.com/#software",
+            name: "Asyncronix",
+            url: "https://asyncronix.com",
+            // Relaciona la suite general con la lista de módulos que ofrece
+            featureList: (modulesData as any[]).map(
+                (mod: any) => mod.name || mod.title,
+            ),
+        },
+    ],
 };
 ---
 
-<Layout title={title} description={description} lang={lang} canonicalPath="modules" schema={schema}>
+<Layout
+    title={title}
+    description={description}
+    lang={lang}
+    canonicalPath="modules"
+    schema={schema}
+>
     <main>
         <ModuleGrid modules={modulesData} hero={contentData.hero} lang={lang} />
     </main>

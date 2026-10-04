@@ -1,0 +1,29 @@
+---
+interface Props {
+  data: {
+    badge?: string;
+    title: string;
+    subtitle: string;
+  };
+}
+
+const { data } = Astro.props;
+---
+
+<div class="text-center max-w-3xl mx-auto mb-14">
+  {data.badge && (
+    <div class="console-badge mb-3">
+      <span>{data.badge}</span>
+    </div>
+  )}
+  <h1
+    class="text-3xl sm:text-4xl md:text-5xl font-semibold text-[#202124] dark:text-[#f1f3f4] tracking-tight mb-4 font-display"
+  >
+    {data.title}
+  </h1>
+  <p
+    class="text-base sm:text-lg text-[#5f6368] dark:text-[#9aa0a6] leading-relaxed"
+  >
+    {data.subtitle}
+  </p>
+</div>

@@ -10,7 +10,6 @@ import FeaturesSection from "../../components/home/sections/FeaturesSection.astr
 import BenefitsSection from "../../components/home/sections/BenefitsSection.astro";
 import TestimonialsSection from "../../components/home/sections/TestimonialsSection.astro";
 import FAQSection from "../../components/home/sections/FAQSection.astro";
-import CallToActionSection from "../../components/home/sections/CallToActionSection.astro";
 
 const lang = Astro.params.lang as Lang;
 
@@ -19,7 +18,7 @@ const { data, error: homeError } = await Astro.callAction(
     { lang, page: "home" },
 );
 const homeData = data as any;
-const { data: reviewsData, error: reviewsError } = await Astro.callAction(
+const { data: reviewsData } = await Astro.callAction(
     actions.getReviews,
     { lang },
 );
@@ -33,14 +32,45 @@ const description = homeData.hero.subtitle;
 
 const schema = {
     "@context": "https://schema.org",
-    "@type": "WebSite",
-    name: "Asyncronix",
-    url: "https://asyncronix.com/",
-    description: description,
-    publisher: {
-        "@type": "Organization",
-        name: "Asyncronix",
-    },
+    "@graph": [
+        {
+            "@type": "SoftwareApplication",
+            "@id": "https://asyncronix.com/#software",
+            name: "Asyncronix",
+            url: "https://asyncronix.com",
+            operatingSystem: "All, Web",
+            applicationCategory: "BusinessApplication",
+            description: description,
+            offers: {
+                "@type": "Offer",
+                price: "0",
+                priceCurrency: "USD",
+            },
+        },
+        {
+            "@type": "Organization",
+            "@id": "https://asyncronix.com/#organization",
+            name: "Asyncronix",
+            url: "https://asyncronix.com",
+            logo: "https://asyncronix.com/icon.webp",
+        },
+        // Si homeData.faq existe y tiene preguntas/respuestas:
+        ...(homeData.faq && homeData.faq.items
+            ? [
+                  {
+                      "@type": "FAQPage",
+                      mainEntity: homeData.faq.items.map((item: any) => ({
+                          "@type": "Question",
+                          name: item.question,
+                          acceptedAnswer: {
+                              "@type": "Answer",
+                              text: item.answer,
+                          },
+                      })),
+                  },
+              ]
+            : []),
+    ],
 };
 ---
 

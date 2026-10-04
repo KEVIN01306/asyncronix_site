@@ -15,7 +15,7 @@ const { data } = Astro.props;
 
     <div class="flex flex-col gap-3.5">
       {
-        data.items.map((faq: any, index: number) => (
+        data.items.map((faq: any) => (
           <details class="group bg-[#f8f9fa] dark:bg-[#12161f] border border-[#dadce0] dark:border-[#2a3443] rounded-[16px] [&_summary::-webkit-details-marker]:hidden open:bg-white dark:open:bg-[#1e2634] open:border-[#1a73e8]/50 dark:open:border-[#8ab4f8]/50 transition-all duration-200">
             <summary class="flex cursor-pointer items-center justify-between gap-4 p-5 font-semibold text-base text-[#202124] dark:text-[#f1f3f4] select-none">
               <span>{faq.question}</span>

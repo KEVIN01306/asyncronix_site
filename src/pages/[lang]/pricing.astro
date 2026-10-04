@@ -20,21 +20,75 @@ if (pricingError || !pricingData || !pricingData.hero) {
 
 const title = `Asyncronix | ${pricingData.hero.title}`;
 const description = pricingData.hero.subtitle;
+const pricingUrl = `https://asyncronix.com/${lang}/pricing`;
+
+// Mapeo dinámico si pricingData contiene la lista de planes o tiers:
+const offers =
+    pricingData.plans?.map((plan: any) => ({
+        "@type": "Offer",
+        name: plan.name || plan.title,
+        description: plan.description || plan.subtitle,
+        price: plan.price ? String(plan.price) : "0.00",
+        priceCurrency: plan.currency || "USD",
+        priceSpecification: {
+            "@type": "UnitPriceSpecification",
+            price: plan.price ? String(plan.price) : "0.00",
+            priceCurrency: plan.currency || "USD",
+            unitText: plan.billingPeriod || "MONTH",
+        },
+        availability: "https://schema.org/InStock",
+        url: pricingUrl,
+    })) || [];
 
 const schema = {
     "@context": "https://schema.org",
-    "@type": "WebPage",
-    "name": title,
-    "description": description,
-    "url": `https://asyncronix.com/${lang}/pricing`,
-    "publisher": {
-        "@type": "Organization",
-        "name": "Asyncronix"
-    }
+    "@graph": [
+        {
+            "@type": "WebPage",
+            "@id": `${pricingUrl}#webpage`,
+            url: pricingUrl,
+            name: title,
+            description: description,
+            isPartOf: {
+                "@type": "WebSite",
+                "@id": "https://asyncronix.com/#website",
+            },
+        },
+        {
+            "@type": "SoftwareApplication",
+            "@id": "https://asyncronix.com/#software",
+            name: "Asyncronix",
+            url: "https://asyncronix.com",
+            applicationCategory: "BusinessApplication",
+            operatingSystem: "All, Web",
+            offers:
+                offers.length > 0
+                    ? offers
+                    : {
+                          // Fallback si la calculadora calcula precios dinámicos según uso o módulos:
+                          "@type": "AggregateOffer",
+                          priceCurrency: "USD",
+                          lowPrice: pricingData.minPrice
+                              ? String(pricingData.minPrice)
+                              : "0.00",
+                          highPrice: pricingData.maxPrice
+                              ? String(pricingData.maxPrice)
+                              : "99.00",
+                          offerCount: pricingData.plans?.length || 3,
+                          url: pricingUrl,
+                      },
+        },
+    ],
 };
 ---
 
-<Layout title={title} description={description} lang={lang} canonicalPath="pricing" schema={schema}>
+<Layout
+    title={title}
+    description={description}
+    lang={lang}
+    canonicalPath="pricing"
+    schema={schema}
+>
     <main>
         <PricingCalculator data={pricingData} />
     </main>

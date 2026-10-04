@@ -1,0 +1,136 @@
+# Asyncronix — ERP SaaS en la Nube
+
+> Asyncronix es una plataforma integral de gestión empresarial (ERP) en la nube desarrollada para optimizar, escalar y automatizar negocios y PYMES en Latinoamérica y el mundo. Centraliza ventas, inventarios, finanzas, operaciones y servicios en un entorno multi-sucursal y multi-empresa accesible desde cualquier dispositivo.
+
+---
+
+## 1. Información General
+
+- **Nombre del producto:** Asyncronix
+- **Sitio web oficial:** https://asyncronix.com
+- **Modelo de negocio:** Software as a Service (SaaS) / Suscripción mensual en la nube
+- **Público objetivo:** Pequeñas y medianas empresas (PYMES), comercios, distribuidoras, talleres mecánicos y empresas de servicios en Latinoamérica y a nivel internacional.
+- **Origen y equipo:** Desarrollado por un equipo especializado en desarrollo de software, arquitecturas escalables, sistemas multi-tenant y automatización empresarial originario de Guatemala con alcance global.
+- **Misión:** Democratizar el acceso a tecnología empresarial de primer nivel, mejorando la productividad y la toma de decisiones basada en datos para PYMES.
+
+---
+
+## 2. Características Principales de la Plataforma
+
+- **Control Centralizado:** Gestión unificada de ventas, inventario, clientes, finanzas y operaciones.
+- **Multi-empresa y Multi-sucursal:** Administración de múltiples puntos de venta y bodegas desde una sola cuenta.
+- **100% en la Nube & Responsivo:** Acceso seguro en tiempo real desde computadoras, tablets y teléfonos móviles.
+- **Automatización de Procesos:** Reducción de tareas repetitivas en facturación, control de caja y notificaciones.
+- **Reportes Financieros y Métricas:** Información precisa y actualizada para la toma de decisiones estratégicas.
+- **Integraciones:** Conexión nativa con canales de mensajería (WhatsApp) para notificaciones automatizadas a clientes.
+
+---
+
+## 3. Módulos del Sistema
+
+### Módulo de Ventas y Facturación
+- **Descripción:** Optimiza el proceso de cobro y la atención al cliente con facturación rápida y control financiero diario.
+- **Funcionalidades:**
+  - Facturación electrónica y emisión de comprobantes.
+  - Cortes y arqueos de caja en tiempo real.
+  - Gestión de clientes y registro detallado de historial de compras.
+  - Creación y seguimiento de cotizaciones.
+  - Manejo de múltiples métodos de pago.
+- **Beneficios:** Reduce tiempos de espera en caja, incrementa la satisfacción del cliente y asegura el control total de los ingresos diarios.
+
+### Módulo de Inventario
+- **Descripción:** Control riguroso de existencias en tiempo real para evitar pérdidas y quiebres de stock.
+- **Funcionalidades:**
+  - Control de stock multi-sucursal y transferencias entre bodegas.
+  - Alertas automáticas de stock bajo y reposición.
+  - Kardex detallado de movimientos de producto.
+  - Categorización avanzada y catálogo de productos.
+- **Beneficios:** Evita desabastecimiento, minimiza mermas o pérdidas y optimiza el proceso de compras a proveedores.
+
+### Módulo de Taller Mecánico & Servicios
+- **Descripción:** Solución especializada para negocios de servicio automotriz, talleres y centros de reparación técnica.
+- **Funcionalidades:**
+  - Gestión integral de órdenes de servicio y reparación.
+  - Checklist digital de recepción de vehículos.
+  - Historial clínico por vehículo (placa, mantenimientos previos, reparaciones).
+  - Asignación de mecánicos y técnicos por orden de trabajo.
+  - Consumo directo e integración con el inventario de repuestos.
+- **Beneficios:** Mayor transparencia hacia el cliente, optimización de tiempos de reparación y control exacto de repuestos y mano de obra.
+
+---
+
+## 4. Planes y Precios
+
+Precios transparentes en dólares estadounidenses (USD) facturados mensualmente, escalables de acuerdo con las necesidades de cada negocio.
+
+### Planes Principales:
+1. **Plan Base — $34 USD / mes**
+   - Incluye:
+     - Módulo de Ventas y Facturación
+     - Gestión de Clientes
+     - Control de Inventario
+     - Finanzas y Reportes
+     - Gestión de Usuarios y Permisos
+     - Gestión de Sucursales
+
+2. **Plan Tienda + Taller — $40 USD / mes**
+   - Incluye:
+     - Todo lo incluido en el Plan Base
+     - Gestión de Servicios y Órdenes de Trabajo
+     - Configuración avanzada de servicios
+     - Checklist de recepción vehicular / equipos
+     - Módulo de Vehículos e Historial
+
+### Complementos y Add-ons (Integración WhatsApp):
+- **Sin integración ($0 USD/mes):** No se envían mensajes automatizados por WhatsApp.
+- **Número Global ($12 USD/mes):** Envío de mensajes y notificaciones automáticas desde un número administrado por Asyncronix.
+- **Número Propio ($10 USD/mes):** Permite enviar mensajes y gestionar la comunicación usando la línea oficial del negocio (los costos directos de consumo con Meta van a cuenta de la empresa).
+
+---
+
+## 5. Contacto, Soporte y Demostraciones
+
+- **Solicitud de Demostración:** Disponible formulario de solicitud de demo guiada en vivo en https://asyncronix.com/es/contact
+- **Correo electrónico:** contacto@asyncronix.com / contact@asyncronix.com
+- **Teléfono / WhatsApp de atención:** +502 5555 1234
+- **Horario de atención:** Lunes a Viernes de 8:00 AM a 6:00 PM (GMT-6)
+- **Soporte Enterprise:** Clientes con suscripción activa disponen de mesa de ayuda prioritaria y atención personalizada guiada.
+
+---
+
+## 6. Preguntas Frecuentes (FAQ)
+
+- **¿Es difícil de implementar Asyncronix?**
+  No. La plataforma cuenta con una interfaz intuitiva y el equipo proporciona soporte guiado durante el proceso de configuración y onboarding.
+- **¿Puedo acceder desde mi teléfono móvil o tablet?**
+  Sí. Asyncronix es 100% responsivo y funciona a través de cualquier navegador web moderno con conexión a internet.
+- **¿Es adecuado para empresas con múltiples tiendas o talleres?**
+  Sí. El sistema está diseñado desde su núcleo con arquitectura multi-sucursal y multi-empresa.
+
+---
+
+## 7. Estructura de Enlaces y Documentación Web
+
+### Idioma Español (ES)
+- Inicio: https://asyncronix.com/es
+- Módulos (Catálogo general): https://asyncronix.com/es/modules
+  - Módulo de Ventas: https://asyncronix.com/es/modules/ventas
+  - Módulo de Inventario: https://asyncronix.com/es/modules/inventario
+  - Módulo de Taller Mecánico: https://asyncronix.com/es/modules/taller
+- Planes y Precios: https://asyncronix.com/es/pricing
+- Nosotros / Quiénes somos: https://asyncronix.com/es/about
+- Contacto y Demostración: https://asyncronix.com/es/contact
+- Términos y Condiciones: https://asyncronix.com/es/terms
+- Políticas de Privacidad: https://asyncronix.com/es/privacy
+
+### Idioma Inglés (EN)
+- Home: https://asyncronix.com/en
+- Modules: https://asyncronix.com/en/modules
+  - Sales Module: https://asyncronix.com/en/modules/ventas
+  - Inventory Module: https://asyncronix.com/en/modules/inventario
+  - Workshop Module: https://asyncronix.com/en/modules/taller
+- Pricing: https://asyncronix.com/en/pricing
+- About: https://asyncronix.com/en/about
+- Contact: https://asyncronix.com/en/contact
+- Terms of Service: https://asyncronix.com/en/terms
+- Privacy Policy: https://asyncronix.com/en/privacy
