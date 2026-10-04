@@ -19,136 +19,156 @@ const navLinks = [
   { href: `/${lang}/modules`, label: t.nav.modules },
   { href: `/${lang}/pricing`, label: t.nav.pricing },
   { href: `/${lang}/about`, label: t.nav.about },
-  { href: `/${lang}/terms`, label: t.nav.terms },
-  { href: `/${lang}/privacy`, label: t.nav.privacy },
+  { href: `/${lang}/contact`, label: t.nav.contact },
 ];
 ---
 
 <nav
-  class="sticky top-0 z-50 w-full px-6 py-4 bg-white/70 dark:bg-slate-900/80 backdrop-blur-xl border-b border-gray-100/50 dark:border-slate-800/50 shadow-sm dark:shadow-slate-900/50 transition-colors duration-300"
+  class="sticky top-0 z-50 w-full px-4 sm:px-6 h-16 bg-white/95 dark:bg-[#171d26]/95 backdrop-blur-md border-b border-[#dadce0] dark:border-[#2a3443] transition-colors duration-200"
   id="main-nav"
 >
-  <div class="max-w-7xl mx-auto flex justify-between items-center">
+  <div class="max-w-7xl mx-auto h-full flex justify-between items-center">
     <a
       href={`/${lang}/`}
-      class="flex items-center gap-3 transition hover:opacity-80 group"
+      class="flex items-center gap-2.5 transition-opacity hover:opacity-90 group"
     >
-      <img
-        src="/logo.webp"
-        class="w-8 h-8 object-contain transition-transform group-hover:scale-110"
-        alt="Asyncronix Logo"
-      />
-      <span class="font-bold text-xl tracking-tight text-slate-800 dark:text-white"
+      <div class="w-8 h-8 rounded-lg bg-[#e8f0fe] dark:bg-[#1e2634] border border-[#dadce0]/60 dark:border-[#2a3443] flex items-center justify-center p-1 shadow-xs">
+        <img
+          src="/logo.webp"
+          class="w-6 h-6 object-contain"
+          alt="Asyncronix Logo"
+        />
+      </div>
+      <span class="font-semibold text-lg tracking-tight text-[#202124] dark:text-[#f1f3f4] font-display"
         >Asyncronix</span
       >
     </a>
 
     <!-- Desktop Navigation -->
-    <div class="hidden lg:flex items-center gap-8">
-      <ul class="flex items-center gap-6 text-sm font-medium text-slate-600 dark:text-slate-300">
+    <div class="hidden lg:flex items-center gap-6">
+      <ul class="flex items-center gap-1 text-[14px] font-medium text-[#3c4043] dark:text-[#c4c7c5]">
         {
-          navLinks.map((link) => (
-            <li>
-              <a
-                href={link.href}
-                class="hover:text-[var(--color-primary)] dark:hover:text-[var(--color-primary)] transition-colors relative after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-0.5 after:bg-gradient-to-r after:from-[var(--color-secondary)] after:to-[var(--color-primary)] hover:after:w-full after:transition-all after:duration-300"
-              >
-                {link.label}
-              </a>
-            </li>
-          ))
+          navLinks.map((link) => {
+            const isActive = currentPath === link.href || (link.href !== `/${lang}/` && currentPath.startsWith(link.href));
+            return (
+              <li>
+                <a
+                  href={link.href}
+                  class={`px-3 py-1.5 rounded-lg transition-colors ${
+                    isActive
+                      ? "text-[#1a73e8] dark:text-[#8ab4f8] bg-[#e8f0fe]/60 dark:bg-[#1e2634] font-semibold"
+                      : "hover:text-[#202124] dark:hover:text-white hover:bg-[#f1f3f4] dark:hover:bg-[#1e2634]"
+                  }`}
+                >
+                  {link.label}
+                </a>
+              </li>
+            );
+          })
         }
       </ul>
 
-      <div class="w-px h-6 bg-slate-200 dark:bg-slate-700"></div>
+      <div class="w-px h-5 bg-[#dadce0] dark:bg-[#2a3443]"></div>
 
-      <!-- Theme Toggle -->
-      <button
-        id="theme-toggle-desktop"
-        class="p-2 text-slate-600 dark:text-slate-300 hover:text-[var(--color-primary)] dark:hover:text-[var(--color-primary)] transition-colors focus:outline-none rounded-full hover:bg-slate-100 dark:hover:bg-slate-800"
-        aria-label="Toggle Dark Mode"
-      >
-        <svg id="theme-toggle-light-icon-desktop" class="w-5 h-5 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
-        </svg>
-        <svg id="theme-toggle-dark-icon-desktop" class="w-5 h-5 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
-        </svg>
-      </button>
-
-      <!-- Language Selector -->
-      <div class="relative group">
+      <div class="flex items-center gap-2">
+        <!-- Theme Toggle -->
         <button
-          class="flex items-center gap-1 px-3 py-1.5 text-sm font-medium text-slate-700 dark:text-slate-300 hover:text-[var(--color-primary)] dark:hover:text-[var(--color-primary)] transition-colors uppercase"
+          id="theme-toggle-desktop"
+          class="w-9 h-9 flex items-center justify-center text-[#5f6368] dark:text-[#9aa0a6] hover:text-[#202124] dark:hover:text-[#f1f3f4] hover:bg-[#f1f3f4] dark:hover:bg-[#1e2634] rounded-full transition-colors focus:outline-none"
+          aria-label="Toggle Dark Mode"
         >
-          {lang}
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="16"
-            height="16"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            class="opacity-70 group-hover:rotate-180 transition-transform"
-            ><path d="m6 9 6 6 6-6"></path></svg
-          >
+          <svg id="theme-toggle-light-icon-desktop" class="w-4.5 h-4.5 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+          </svg>
+          <svg id="theme-toggle-dark-icon-desktop" class="w-4.5 h-4.5 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+          </svg>
         </button>
-        <div
-          class="absolute right-0 top-full mt-2 w-24 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 translate-y-2 group-hover:translate-y-0"
-        >
-          <div
-            class="bg-white dark:bg-slate-800 rounded-xl shadow-xl border border-slate-100 dark:border-slate-700 py-2 flex flex-col"
+
+        <!-- Language Selector -->
+        <div class="relative group">
+          <button
+            class="flex items-center gap-1.5 px-2.5 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#5f6368] dark:text-[#9aa0a6] hover:text-[#202124] dark:hover:text-[#f1f3f4] hover:bg-[#f1f3f4] dark:hover:bg-[#1e2634] rounded-md transition-colors"
           >
-            {
-              Object.keys(LANGUAGES).map((l) => (
-                <a
-                  href={getSwitchLangPath(l)}
-                  class={`px-4 py-2 text-sm text-center uppercase font-medium hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors ${lang === l ? "text-[var(--color-primary)] bg-slate-50 dark:bg-slate-700" : "text-slate-600 dark:text-slate-300"}`}
-                >
-                  {l}
-                </a>
-              ))
-            }
+            <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10" />
+              <path d="M12 2a14.5 14.5 0 0 0 0 20M12 2a14.5 14.5 0 0 1 0 20M2 12h20" />
+            </svg>
+            <span>{lang}</span>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="12"
+              height="12"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="opacity-60 group-hover:rotate-180 transition-transform"
+              ><path d="m6 9 6 6 6-6"></path></svg
+            >
+          </button>
+          <div
+            class="absolute right-0 top-full mt-1.5 w-28 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-150 translate-y-1 group-hover:translate-y-0 z-50"
+          >
+            <div
+              class="bg-white dark:bg-[#171d26] rounded-xl shadow-lg border border-[#dadce0] dark:border-[#2a3443] py-1 flex flex-col overflow-hidden"
+            >
+              {
+                Object.keys(LANGUAGES).map((l) => (
+                  <a
+                    href={getSwitchLangPath(l)}
+                    class={`px-3 py-1.5 text-xs text-left uppercase font-semibold transition-colors flex items-center justify-between ${
+                      lang === l
+                        ? "text-[#1a73e8] bg-[#e8f0fe] dark:bg-[#1e2634] dark:text-[#8ab4f8]"
+                        : "text-[#3c4043] dark:text-[#c4c7c5] hover:bg-[#f1f3f4] dark:hover:bg-[#1e2634]"
+                    }`}
+                  >
+                    <span>{l}</span>
+                    {lang === l && <span class="w-1.5 h-1.5 rounded-full bg-[#1a73e8]"></span>}
+                  </a>
+                ))
+              }
+            </div>
           </div>
         </div>
-      </div>
 
-      <a
-        href="https://app.asyncronix.com/"
-        class="btn-primary py-2 px-5 text-sm shadow-md hover:shadow-lg"
-      >
-        {t.nav.login}
-      </a>
+        <a
+          href="https://app.asyncronix.com/"
+          class="btn-primary ml-1"
+        >
+          {t.nav.login}
+        </a>
+      </div>
     </div>
 
     <!-- Mobile Controls -->
-    <div class="flex items-center gap-2 lg:hidden">
+    <div class="flex items-center gap-1.5 lg:hidden">
       <!-- Theme Toggle Mobile -->
       <button
         id="theme-toggle-mobile"
-        class="p-2 text-slate-600 dark:text-slate-300 hover:text-[var(--color-primary)] transition-colors focus:outline-none rounded-full hover:bg-slate-100 dark:hover:bg-slate-800"
+        class="w-9 h-9 flex items-center justify-center text-[#5f6368] dark:text-[#9aa0a6] hover:bg-[#f1f3f4] dark:hover:bg-[#1e2634] rounded-full transition-colors focus:outline-none"
         aria-label="Toggle Dark Mode"
       >
-        <svg id="theme-toggle-light-icon-mobile" class="w-5 h-5 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+        <svg id="theme-toggle-light-icon-mobile" class="w-5 h-5 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
         </svg>
-        <svg id="theme-toggle-dark-icon-mobile" class="w-5 h-5 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+        <svg id="theme-toggle-dark-icon-mobile" class="w-5 h-5 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
         </svg>
       </button>
 
       <!-- Mobile Menu Button -->
       <button
         id="mobile-menu-btn"
-        class="p-2 text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors focus:outline-none"
+        class="w-9 h-9 flex items-center justify-center text-[#3c4043] dark:text-[#c4c7c5] hover:bg-[#f1f3f4] dark:hover:bg-[#1e2634] rounded-lg transition-colors focus:outline-none"
+        aria-label="Menu"
       >
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        width="24"
-        height="24"
+        width="20"
+        height="20"
         viewBox="0 0 24 24"
         fill="none"
         stroke="currentColor"
@@ -164,8 +184,8 @@ const navLinks = [
       >
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        width="24"
-        height="24"
+        width="20"
+        height="20"
         viewBox="0 0 24 24"
         fill="none"
         stroke="currentColor"
@@ -183,16 +203,16 @@ const navLinks = [
 <!-- Mobile Drawer -->
 <div
   id="mobile-drawer"
-  class="fixed inset-0 top-[65px] bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl z-[100] lg:hidden flex-col translate-x-full transition-transform duration-300 border-t border-slate-100 dark:border-slate-800 h-[calc(100vh-65px)] flex"
+  class="fixed inset-0 top-[64px] bg-white/98 dark:bg-[#0f1318]/98 backdrop-blur-xl z-[100] lg:hidden flex-col translate-x-full transition-transform duration-250 border-t border-[#dadce0] dark:border-[#2a3443] h-[calc(100vh-64px)] flex"
 >
   <div class="p-6 flex flex-col gap-6 flex-1 overflow-y-auto">
-    <ul class="flex flex-col gap-4 text-lg font-medium text-slate-800 dark:text-slate-200">
+    <ul class="flex flex-col gap-1 text-[15px] font-medium text-[#202124] dark:text-[#f1f3f4]">
       {
         navLinks.map((link) => (
           <li>
             <a
               href={link.href}
-              class="block hover:text-[var(--color-primary)] dark:hover:text-[var(--color-primary)] transition-colors py-2 border-b border-slate-100 dark:border-slate-800 mobile-link"
+              class="block px-3 py-2.5 rounded-lg hover:bg-[#f1f3f4] dark:hover:bg-[#1e2634] transition-colors mobile-link"
             >
               {link.label}
             </a>
@@ -201,18 +221,22 @@ const navLinks = [
       }
     </ul>
 
-    <div class="mt-4">
+    <div class="pt-4 border-t border-[#dadce0] dark:border-[#2a3443]">
       <p
-        class="text-sm text-slate-500 dark:text-slate-400 mb-3 uppercase tracking-wider font-semibold"
+        class="text-xs text-[#5f6368] dark:text-[#9aa0a6] mb-3 uppercase tracking-wider font-semibold"
       >
         Idioma
       </p>
-      <div class="flex flex-wrap gap-3">
+      <div class="flex flex-wrap gap-2">
         {
           Object.keys(LANGUAGES).map((l) => (
             <a
               href={getSwitchLangPath(l)}
-              class={`px-4 py-2 rounded-lg text-sm uppercase font-medium border transition-colors ${lang === l ? "border-[var(--color-primary)] text-[var(--color-primary)] bg-[var(--color-primary)]/5" : "border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800"}`}
+              class={`px-3 py-1.5 rounded-lg text-xs uppercase font-medium border transition-colors ${
+                lang === l
+                  ? "border-[#1a73e8] text-[#1a73e8] bg-[#e8f0fe] dark:bg-[#1e2634] dark:border-[#8ab4f8] dark:text-[#8ab4f8]"
+                  : "border-[#dadce0] dark:border-[#2a3443] text-[#3c4043] dark:text-[#c4c7c5] hover:bg-[#f1f3f4] dark:hover:bg-[#1e2634]"
+              }`}
             >
               {l}
             </a>
@@ -221,10 +245,10 @@ const navLinks = [
       </div>
     </div>
 
-    <div class="mt-auto pt-6 border-t border-slate-100 dark:border-slate-800 pb-8">
+    <div class="mt-auto pt-6 border-t border-[#dadce0] dark:border-[#2a3443] pb-8">
       <a
         href="https://app.asyncronix.com/"
-        class="btn-primary w-full shadow-md text-center py-3 text-lg"
+        class="btn-primary w-full text-center h-11 text-[15px]"
       >
         {t.nav.login}
       </a>

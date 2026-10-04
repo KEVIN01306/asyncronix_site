@@ -3,126 +3,123 @@ const { module, lang } = Astro.props;
 ---
 
 <section
-  class="py-24 bg-white dark:bg-slate-900 relative overflow-hidden transition-colors duration-300 bg-pattern"
+  class="py-14 bg-[#f8f9fa] dark:bg-[#0f1318] relative overflow-hidden transition-colors duration-200"
 >
-  <div class="max-w-7xl mx-auto px-6">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6">
     <!-- Header Section -->
     <div class="text-center max-w-4xl mx-auto mb-12">
       <a
         href={`/${lang}/modules`}
-        class="inline-flex items-center justify-center gap-2 text-slate-500 dark:text-slate-400 hover:text-[var(--color-primary)] dark:hover:text-[var(--color-primary)] mb-8 transition-colors font-medium text-sm uppercase tracking-wider"
+        class="inline-flex items-center justify-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-[#5f6368] dark:text-[#9aa0a6] hover:text-[#1a73e8] dark:hover:text-[#8ab4f8] mb-6 transition-colors px-3 py-1.5 rounded-full hover:bg-white dark:hover:bg-[#171d26] border border-transparent hover:border-[#dadce0] dark:hover:border-[#2a3443]"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          width="16"
-          height="16"
+          width="14"
+          height="14"
           viewBox="0 0 24 24"
           fill="none"
           stroke="currentColor"
-          stroke-width="2"
+          stroke-width="2.5"
           stroke-linecap="round"
           stroke-linejoin="round"><path d="m15 18-6-6 6-6"></path></svg
         >
-        Volver a módulos
+        Volver al catálogo de módulos
       </a>
 
+      <div class="console-badge mb-3">
+        <span>Módulo de Sistema</span>
+      </div>
+
       <h1
-        class="text-5xl md:text-6xl font-extrabold text-slate-900 dark:text-white tracking-tight mb-6"
+        class="text-3xl sm:text-4xl md:text-5xl font-semibold text-[#202124] dark:text-[#f1f3f4] tracking-tight mb-4 font-display"
       >
         {module.name}
       </h1>
       <p
-        class="text-xl md:text-2xl text-slate-600 dark:text-slate-400 leading-relaxed"
+        class="text-base sm:text-xl text-[#5f6368] dark:text-[#9aa0a6] leading-relaxed max-w-2xl mx-auto"
       >
         {module.description}
       </p>
     </div>
 
-    <!-- Main Image with Decorative Background -->
-    <div class="relative w-full max-w-5xl mx-auto mb-32 group">
-      <!-- Decorative background -->
+    <!-- Main Image inside Console Mockup Frame -->
+    <div class="relative w-full max-w-5xl mx-auto mb-20">
       <div
-        class="absolute -inset-4 md:-inset-8 rounded-[3rem] opacity-20 group-hover:opacity-30 transition-opacity duration-500 blur-xl"
-        style={`background: ${module.themeColor || "var(--color-primary)"};`}
-      >
-      </div>
-      <div
-        class="absolute -inset-2 md:-inset-4 rounded-[2.5rem] opacity-40 group-hover:opacity-50 transition-opacity duration-500"
-        style={`background: linear-gradient(135deg, ${module.themeColor || "var(--color-primary)"} 0%, transparent 100%);`}
-      >
-      </div>
-
-      <!-- Image Container -->
-      <div
-        class="relative w-full rounded-3xl bg-slate-50 dark:bg-slate-800 border border-slate-200/50 dark:border-slate-700/50 shadow-2xl dark:shadow-slate-900/80 overflow-hidden flex flex-col transition-colors duration-300"
+        class="relative w-full rounded-[24px] bg-white dark:bg-[#171d26] border border-[#dadce0] dark:border-[#2a3443] shadow-md dark:shadow-2xl overflow-hidden flex flex-col"
       >
         <!-- Mockup Header -->
         <div
-          class="h-10 bg-slate-100/80 dark:bg-slate-800/80 backdrop-blur border-b border-slate-200 dark:border-slate-700 flex items-center px-4 gap-2 shrink-0 z-20"
+          class="h-10 bg-[#f8f9fa] dark:bg-[#12161f] border-b border-[#dadce0] dark:border-[#2a3443] flex items-center justify-between px-4"
         >
-          <div class="w-3 h-3 rounded-full bg-red-300"></div>
-          <div class="w-3 h-3 rounded-full bg-yellow-300"></div>
-          <div class="w-3 h-3 rounded-full bg-green-300"></div>
+          <div class="flex items-center gap-1.5">
+            <div class="w-2.5 h-2.5 rounded-full bg-[#dadce0] dark:bg-[#3c4043]"></div>
+            <div class="w-2.5 h-2.5 rounded-full bg-[#dadce0] dark:bg-[#3c4043]"></div>
+            <div class="w-2.5 h-2.5 rounded-full bg-[#dadce0] dark:bg-[#3c4043]"></div>
+          </div>
+          <span class="text-[11px] font-mono text-[#5f6368] dark:text-[#9aa0a6]">asyncronix.com/modules/{module.slug}</span>
+          <div class="w-12"></div>
         </div>
         <!-- Image -->
         <div
-          class="flex-1 w-full relative bg-white dark:bg-slate-900 flex items-center justify-center p-0 transition-colors duration-300"
+          class="w-full relative bg-white dark:bg-[#171d26] flex items-center justify-center p-4 sm:p-6"
         >
           <img
             src={module.image}
             alt={module.name}
-            class="w-full h-full object-contain"
+            class="w-full h-auto object-contain rounded-xl"
           />
         </div>
       </div>
     </div>
 
     <!-- What's included Section -->
-    <div class="max-w-5xl mx-auto mb-32">
-      <div class="text-center mb-16">
+    <div class="max-w-5xl mx-auto mb-20">
+      <div class="text-center mb-12">
         <h2
-          class="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-4"
+          class="text-2xl sm:text-3xl font-semibold text-[#202124] dark:text-[#f1f3f4] mb-2 font-display"
         >
-          Lo que incluye
+          Funcionalidades & Beneficios Clave
         </h2>
-        <p class="text-lg text-slate-600 dark:text-slate-400">
-          Todo lo que necesitas para potenciar esta área de tu negocio.
+        <p class="text-sm text-[#5f6368] dark:text-[#9aa0a6]">
+          Todo lo necesario para potenciar y automatizar esta área de tu empresa.
         </p>
       </div>
 
-      <div class="grid md:grid-cols-2 gap-8">
+      <div class="grid md:grid-cols-2 gap-6">
         <!-- Features -->
         <div
-          class="p-8 md:p-10 rounded-3xl bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700 shadow-xl shadow-slate-100/50 dark:shadow-slate-900/50 transition-colors duration-300"
+          class="p-6 sm:p-8 rounded-[20px] bg-white dark:bg-[#171d26] border border-[#dadce0] dark:border-[#2a3443] shadow-xs"
         >
-          <h3
-            class="text-2xl font-bold text-slate-900 dark:text-white mb-8 flex items-center gap-3"
-          >
-            <svg
-              class="w-7 h-7 text-[var(--color-primary)]"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              stroke-width="2"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"
-              ></path>
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
-            </svg>
-            Características
-          </h3>
-          <ul class="flex flex-col gap-5">
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-10 h-10 rounded-xl bg-[#e8f0fe] dark:bg-[#1e2634] text-[#1a73e8] dark:text-[#8ab4f8] flex items-center justify-center border border-[#dadce0]/60 dark:border-[#2a3443]">
+              <svg
+                class="w-5 h-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"
+                ></path>
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+              </svg>
+            </div>
+            <h3 class="text-lg font-semibold text-[#202124] dark:text-[#f1f3f4]">
+              Características
+            </h3>
+          </div>
+          <ul class="flex flex-col gap-3.5">
             {
               module.features.map((feature: string) => (
-                <li class="flex items-start gap-4 text-slate-700 dark:text-slate-300 text-lg">
+                <li class="flex items-start gap-3 text-xs sm:text-sm text-[#3c4043] dark:text-[#c4c7c5]">
                   <svg
-                    class="w-6 h-6 text-[var(--color-primary)] shrink-0 mt-0.5"
+                    class="w-4 h-4 text-[#1a73e8] dark:text-[#8ab4f8] shrink-0 mt-0.5"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -134,7 +131,7 @@ const { module, lang } = Astro.props;
                       d="M5 13l4 4L19 7"
                     />
                   </svg>
-                  <span class="leading-relaxed">{feature}</span>
+                  <span class="leading-relaxed font-normal">{feature}</span>
                 </li>
               ))
             }
@@ -143,37 +140,36 @@ const { module, lang } = Astro.props;
 
         <!-- Benefits -->
         <div
-          class="p-8 md:p-10 rounded-3xl dark:!bg-slate-800 transition-colors duration-300"
-          style={`background-color: ${module.themeColor ? module.themeColor + "15" : "var(--color-primary)"} ; border: 1px solid ${module.themeColor ? module.themeColor + "30" : "var(--color-primary)"};`}
+          class="p-6 sm:p-8 rounded-[20px] bg-white dark:bg-[#171d26] border border-[#dadce0] dark:border-[#2a3443] shadow-xs"
         >
-          <h3
-            class="text-2xl font-bold text-slate-900 dark:text-white mb-8 flex items-center gap-3"
-          >
-            <svg
-              class="w-7 h-7"
-              style={`color: ${module.themeColor || "var(--color-primary)"}`}
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              stroke-width="2"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-            </svg>
-            Beneficios clave
-          </h3>
-          <ul class="flex flex-col gap-5">
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-10 h-10 rounded-xl bg-[#e6f4ea] dark:bg-[#188038]/20 text-[#188038] dark:text-[#81c995] flex items-center justify-center border border-[#dadce0]/60 dark:border-[#2a3443]">
+              <svg
+                class="w-5 h-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+              </svg>
+            </div>
+            <h3 class="text-lg font-semibold text-[#202124] dark:text-[#f1f3f4]">
+              Beneficios Clave
+            </h3>
+          </div>
+          <ul class="flex flex-col gap-3.5">
             {
               module.benefits.map((benefit: string) => (
-                <li class="flex items-start gap-4 text-slate-800 dark:text-slate-200 text-lg">
+                <li class="flex items-start gap-3 text-xs sm:text-sm text-[#3c4043] dark:text-[#c4c7c5]">
                   <div
-                    class="w-6 h-6 rounded-full flex items-center justify-center shrink-0 mt-0.5"
-                    style={`background-color: ${module.themeColor ? module.themeColor + "30" : "var(--color-primary)"}; color: ${module.themeColor || "var(--color-primary)"}`}
+                    class="w-4 h-4 rounded-full bg-[#e6f4ea] dark:bg-[#188038]/20 text-[#188038] dark:text-[#81c995] flex items-center justify-center shrink-0 mt-0.5"
                   >
                     <svg
-                      class="w-4 h-4"
+                      class="w-2.5 h-2.5"
                       fill="none"
                       viewBox="0 0 24 24"
                       stroke="currentColor"
@@ -182,11 +178,11 @@ const { module, lang } = Astro.props;
                       <path
                         stroke-linecap="round"
                         stroke-linejoin="round"
-                        d="M12 4v16m8-8H4"
+                        d="M5 13l4 4L19 7"
                       />
                     </svg>
                   </div>
-                  <span class="leading-relaxed font-medium">{benefit}</span>
+                  <span class="leading-relaxed font-normal">{benefit}</span>
                 </li>
               ))
             }
@@ -199,25 +195,24 @@ const { module, lang } = Astro.props;
     {
       module.images && module.images.length > 0 && (
         <div class="max-w-6xl mx-auto mb-20">
-          <div class="text-center mb-12">
-            <h2 class="text-3xl font-bold text-slate-900 dark:text-white mb-4">
-              Galería del Módulo
+          <div class="text-center mb-10">
+            <h2 class="text-2xl sm:text-3xl font-semibold text-[#202124] dark:text-[#f1f3f4] mb-2 font-display">
+              Capturas de la Consola
             </h2>
+            <p class="text-xs sm:text-sm text-[#5f6368] dark:text-[#9aa0a6]">Vistas reales de la interfaz del sistema</p>
           </div>
 
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
             {module.images.map((img: string, idx: number) => {
-              // Hacemos que la primera imagen del collage ocupe más espacio si queremos un efecto de masonry,
-              // o simplemente una grilla normal.
               const isLarge = idx === 0 && module.images.length % 2 !== 0;
               return (
                 <div
-                  class={`rounded-3xl overflow-hidden bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-md dark:shadow-slate-900/50 hover:shadow-xl transition-all duration-300 ${isLarge ? "md:col-span-2 lg:col-span-2 aspect-[16/9]" : "aspect-square md:aspect-video lg:aspect-[4/3]"} group`}
+                  class={`rounded-2xl overflow-hidden bg-white dark:bg-[#171d26] border border-[#dadce0] dark:border-[#2a3443] shadow-xs hover:border-[#1a73e8]/60 transition-all duration-200 ${isLarge ? "md:col-span-2 lg:col-span-2 aspect-[16/9]" : "aspect-square md:aspect-video lg:aspect-[4/3]"} group p-2`}
                 >
                   <img
                     src={img}
                     alt={`${module.name} - Captura ${idx + 1}`}
-                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                    class="w-full h-full object-cover rounded-xl group-hover:scale-[1.02] transition-transform duration-300 ease-out"
                   />
                 </div>
               );
@@ -231,12 +226,11 @@ const { module, lang } = Astro.props;
     <div class="text-center mt-12 mb-12">
       <a
         href="https://app.asyncronix.com/register"
-        class="inline-flex justify-center items-center gap-3 px-10 py-5 text-xl font-semibold rounded-full text-white shadow-2xl hover:-translate-y-1 transition-all"
-        style={`background-color: ${module.themeColor || "var(--color-primary)"}; box-shadow: 0 10px 25px -5px ${module.themeColor ? module.themeColor + "60" : "rgba(0,0,0,0.1)"};`}
+        class="btn-primary h-11 px-8 text-base"
       >
         Probar este módulo
         <svg
-          class="w-6 h-6"
+          class="w-4 h-4"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
@@ -251,3 +245,4 @@ const { module, lang } = Astro.props;
     </div>
   </div>
 </section>
+

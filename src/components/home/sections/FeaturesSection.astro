@@ -2,31 +2,46 @@
 const { data } = Astro.props;
 ---
 
-<section class="py-24 bg-slate-50 dark:bg-slate-900 relative pb-32 transition-colors duration-300">
-  <div class="max-w-7xl mx-auto px-6 relative z-10">
-    <div class="text-center mb-16">
-      <h2 class="text-3xl md:text-5xl font-bold text-slate-900 dark:text-white tracking-tight">
+<section class="py-20 bg-[#f8f9fa] dark:bg-[#0f1318] relative transition-colors duration-200">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
+    <div class="text-center max-w-3xl mx-auto mb-14">
+      <div class="console-badge mb-3">
+        <span>Capacidades del Sistema</span>
+      </div>
+      <h2 class="text-3xl md:text-4xl font-semibold text-[#202124] dark:text-[#f1f3f4] tracking-tight font-display">
         {data.title}
       </h2>
     </div>
 
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
       {data.items.map((item: any, i: number) => (
-        <div class="bg-white dark:bg-slate-800 rounded-3xl p-8 border border-slate-100 dark:border-slate-700 shadow-sm hover:shadow-xl dark:hover:shadow-2xl hover:border-slate-200 dark:hover:border-slate-600 transition-all duration-300 group">
-          <div class="w-12 h-12 rounded-xl bg-[var(--color-secondary)]/10 text-[var(--color-primary)] flex items-center justify-center mb-6">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5l10 -10"/></svg>
+        <div class="console-card-interactive bg-white dark:bg-[#171d26] rounded-[20px] p-7 border border-[#dadce0] dark:border-[#2a3443] flex flex-col justify-between group">
+          <div>
+            <div class="w-11 h-11 rounded-xl bg-[#e8f0fe] dark:bg-[#1e2634] text-[#1a73e8] dark:text-[#8ab4f8] flex items-center justify-center mb-5 border border-[#dadce0]/50 dark:border-[#2a3443]">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                {i % 6 === 0 && <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z M14 2v6h6 M16 13H8 M16 17H8 M10 9H8" />}
+                {i % 6 === 1 && <path d="M12 2v20 M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />}
+                {i % 6 === 2 && <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />}
+                {i % 6 === 3 && <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2 M9 7a4 4 0 1 0 0-8 4 4 0 0 0 0 8z M22 21v-2a4 4 0 0 0-3-3.87 M16 3.13a4 4 0 0 1 0 7.75" />}
+                {i % 6 === 4 && <path d="M18 20V10 M12 20V4 M6 20v-6" />}
+                {i % 6 === 5 && <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />}
+              </svg>
+            </div>
+            <h3 class="text-lg font-semibold text-[#202124] dark:text-[#f1f3f4] mb-2 group-hover:text-[#1a73e8] dark:group-hover:text-[#8ab4f8] transition-colors font-display">
+              {item.title}
+            </h3>
+            <p class="text-sm text-[#5f6368] dark:text-[#9aa0a6] leading-relaxed">
+              {item.description}
+            </p>
           </div>
-          <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-3 group-hover:text-[var(--color-primary)] dark:group-hover:text-[var(--color-primary)] transition-colors">{item.title}</h3>
-          <p class="text-slate-600 dark:text-slate-400 leading-relaxed">{item.description}</p>
+          <div class="mt-5 pt-4 border-t border-[#dadce0]/50 dark:border-[#2a3443] flex items-center gap-1.5 text-xs font-semibold text-[#1a73e8] dark:text-[#8ab4f8]">
+            <span>Disponible en consola</span>
+            <svg class="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+            </svg>
+          </div>
         </div>
       ))}
     </div>
-  </div>
-
-  <!-- Wave Divider (Flipped) -->
-  <div class="absolute bottom-0 left-0 w-full overflow-hidden leading-[0] scale-x-[-1]">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none" class="relative block w-full h-[40px] md:h-[80px]">
-        <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V0C6.2,0,12.35,0,18.52,0c85.87,0,172.18,48,252.87,66Z" class="fill-white dark:fill-slate-800 transition-colors duration-300"></path>
-    </svg>
   </div>
 </section>

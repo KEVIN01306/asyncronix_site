@@ -6,34 +6,57 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 ---
 
-<footer class="w-full border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 py-12 px-6 transition-colors duration-300">
+<footer class="w-full border-t border-[#dadce0] dark:border-[#2a3443] bg-white dark:bg-[#171d26] py-8 px-4 sm:px-6 transition-colors duration-200">
   <div
-    class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6"
+    class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4 sm:gap-6"
   >
-    <div class="flex items-center gap-2">
-      <img
-        src="/logo.webp"
-        class="w-8 h-8 object-contain opacity-50 grayscale"
-        alt="Asyncronix Logo"
-      />
-      <span class="font-semibold text-lg text-slate-400 dark:text-slate-500">Asyncronix</span>
+    <div class="flex items-center gap-2.5">
+      <div class="w-6 h-6 rounded-md bg-[#f1f3f4] dark:bg-[#1e2634] border border-[#dadce0]/60 dark:border-[#2a3443] flex items-center justify-center p-0.5">
+        <img
+          src="/logo.webp"
+          class="w-4 h-4 object-contain opacity-70"
+          alt="Asyncronix Logo"
+        />
+      </div>
+      <span class="font-medium text-sm text-[#5f6368] dark:text-[#9aa0a6]">Asyncronix Cloud ERP</span>
     </div>
 
-    <div class="flex gap-6 text-sm font-medium text-slate-500 dark:text-slate-400">
+    <div class="flex gap-5 text-xs font-medium text-[#5f6368] dark:text-[#9aa0a6]">
+      <a
+        href={`/${lang}/`}
+        class="hover:text-[#1a73e8] dark:hover:text-[#8ab4f8] transition-colors"
+        >{t.nav.home}</a
+      >
+      <a
+        href={`/${lang}/modules`}
+        class="hover:text-[#1a73e8] dark:hover:text-[#8ab4f8] transition-colors"
+        >{t.nav.modules}</a
+      >
+      <a
+        href={`/${lang}/pricing`}
+        class="hover:text-[#1a73e8] dark:hover:text-[#8ab4f8] transition-colors"
+        >{t.nav.pricing}</a
+      >
+      <a
+        href={`/${lang}/contact`}
+        class="hover:text-[#1a73e8] dark:hover:text-[#8ab4f8] transition-colors"
+        >{t.nav.contact}</a
+      >
       <a
         href={`/${lang}/terms`}
-        class="hover:text-[var(--color-primary)] transition-colors"
+        class="hover:text-[#1a73e8] dark:hover:text-[#8ab4f8] transition-colors"
         >{t.nav.terms}</a
       >
       <a
         href={`/${lang}/privacy`}
-        class="hover:text-[var(--color-primary)] transition-colors"
+        class="hover:text-[#1a73e8] dark:hover:text-[#8ab4f8] transition-colors"
         >{t.nav.privacy}</a
       >
     </div>
 
-    <p class="text-sm font-medium text-slate-400 dark:text-slate-500 text-center md:text-right">
+    <p class="text-xs text-[#5f6368] dark:text-[#9aa0a6] text-center sm:text-right">
       {t.footer.rights}
     </p>
   </div>
 </footer>
+

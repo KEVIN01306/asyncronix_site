@@ -5,6 +5,7 @@ export const ui = {
             modules: 'Módulos',
             pricing: 'Precios',
             about: 'Nosotros',
+            contact: 'Contacto',
             terms: 'Términos',
             privacy: 'Políticas',
             login: 'Iniciar sesión'
@@ -19,6 +20,7 @@ export const ui = {
             modules: 'Modules',
             pricing: 'Pricing',
             about: 'About',
+            contact: 'Contact',
             terms: 'Terms',
             privacy: 'Privacy',
             login: 'Log in'

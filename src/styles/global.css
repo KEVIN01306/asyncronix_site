@@ -2,43 +2,45 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme {
-  --color-primary: #AF25FD;
-  --color-secondary: #21D4ED;
+  /* Google Design Tokens from DESING.md */
+  --color-canvas-white: #f8f9fa;
+  --color-charcoal-ink: #202124;
+  --color-graphite: #3c4043;
+  --color-slate: #5f6368;
+  --color-mist: #dadce0;
+  --color-cloud-shadow: #c4c6c7;
+  --color-google-blue: #1a73e8;
+  --color-google-blue-deep: #1967d2;
+  --color-google-blue-light: #e8f0fe;
+  --color-classroom-green: #188038;
 
+  /* Backward compatibility tokens */
+  --color-primary: #1a73e8;
+  --color-primary-hover: #1967d2;
+  --color-primary-light: #e8f0fe;
+  --color-secondary: #1a73e8;
+
+  /* Dark mode surface tokens */
+  --color-dark-canvas: #0f1318;
+  --color-dark-surface: #171d26;
+  --color-dark-surface-elevated: #1e2634;
+  --color-dark-border: #2a3443;
+  --color-dark-text-primary: #f1f3f4;
+  --color-dark-text-secondary: #c4c7c5;
+  --color-dark-text-muted: #9aa0a6;
+
+  /* Animations */
   --animate-float: float 6s ease-in-out infinite;
-  --animate-shadow: shadow 6s ease-in-out infinite;
-  --animate-fade-in: fadeIn 0.8s ease-out forwards;
-  --animate-slide-up: slideUp 0.8s ease-out forwards;
+  --animate-fade-in: fadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  --animate-slide-up: slideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 @keyframes float {
-  0% {
+  0%, 100% {
     transform: translateY(0px);
   }
-
   50% {
-    transform: translateY(-20px);
-  }
-
-  100% {
-    transform: translateY(0px);
-  }
-}
-
-@keyframes shadow {
-  0% {
-    transform: scale(1) translateX(-50%);
-    opacity: 0.4;
-  }
-
-  50% {
-    transform: scale(0.8) translateX(-50%);
-    opacity: 0.2;
-  }
-
-  100% {
-    transform: scale(1) translateX(-50%);
-    opacity: 0.4;
+    transform: translateY(-6px);
   }
 }
 
@@ -46,7 +48,6 @@
   from {
     opacity: 0;
   }
-
   to {
     opacity: 1;
   }
@@ -55,47 +56,304 @@
 @keyframes slideUp {
   from {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(12px);
   }
-
   to {
     opacity: 1;
     transform: translateY(0);
   }
 }
 
+:root {
+  --font-display: "Google Sans Display", "Plus Jakarta Sans", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-text: "Google Sans Text", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
 html {
   scroll-behavior: smooth;
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
 }
 
 body {
-  @apply bg-slate-50 text-slate-900 dark:bg-slate-900 dark:text-slate-50 antialiased overflow-x-hidden transition-colors duration-300;
+  background-color: #f8f9fa;
+  color: #202124;
+  font-family: var(--font-text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-/* Premium gradient utility */
-.premium-gradient {
-  @apply bg-gradient-to-r from-[var(--color-secondary)] to-[var(--color-primary)] text-transparent bg-clip-text;
+.dark body,
+html.dark body {
+  background-color: #0f1318;
+  color: #f1f3f4;
 }
 
-/* Premium button */
+/* Formal Corporate Typography */
+.font-display {
+  font-family: var(--font-display);
+  letter-spacing: -0.015em;
+}
+
+.font-text {
+  font-family: var(--font-text);
+}
+
+/* Text Hierarchy */
+.text-charcoal {
+  color: #202124;
+}
+.dark .text-charcoal {
+  color: #f1f3f4;
+}
+
+.text-graphite {
+  color: #3c4043;
+}
+.dark .text-graphite {
+  color: #c4c7c5;
+}
+
+.text-slate {
+  color: #5f6368;
+}
+.dark .text-slate {
+  color: #9aa0a6;
+}
+
+/* Google Highlight Accent */
+.google-accent-text {
+  color: #1a73e8;
+}
+.dark .google-accent-text {
+  color: #8ab4f8;
+}
+
+/* Google Console / Google for Education Buttons */
 .btn-primary {
-  @apply inline-flex items-center justify-center px-6 py-3 text-base font-medium text-white bg-gradient-to-r from-[var(--color-secondary)] to-[var(--color-primary)] rounded-full hover:opacity-90 transition-opacity shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[var(--color-primary)];
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0 1.5rem;
+  height: 40px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1;
+  color: #ffffff;
+  background-color: #1a73e8;
+  border: 1px solid transparent;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: all 0.15s ease-in-out;
+  text-decoration: none;
+  box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);
 }
 
-.btn-secondary {
-  @apply inline-flex items-center justify-center px-6 py-3 text-base font-medium text-slate-700 bg-white border border-slate-200 rounded-full hover:bg-slate-50 hover:text-slate-900 shadow-sm hover:shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-slate-500 dark:bg-slate-800 dark:text-slate-200 dark:border-slate-700 dark:hover:bg-slate-700 dark:hover:text-white dark:focus:ring-offset-slate-900 transition-colors duration-300;
+.btn-primary:hover {
+  background-color: #1967d2;
+  box-shadow: 0 1px 3px 0 rgba(60, 64, 67, 0.3), 0 4px 8px 3px rgba(60, 64, 67, 0.15);
 }
 
-/* Glassmorphism cards */
-.glass-card {
-  @apply bg-white/80 dark:bg-slate-900/80 backdrop-blur-lg border border-white/20 dark:border-slate-800/50 shadow-xl dark:shadow-2xl dark:shadow-slate-900/50 rounded-2xl transition-colors duration-300;
+.btn-primary:active {
+  background-color: #1557b0;
+  box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.3);
 }
 
+.dark .btn-primary {
+  background-color: #1a73e8;
+  color: #ffffff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+}
 
+.dark .btn-primary:hover {
+  background-color: #1b66ca;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+}
+
+.btn-secondary,
+.btn-ghost-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0 1.5rem;
+  height: 40px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1;
+  color: #1a73e8;
+  background-color: #ffffff;
+  border: 1px solid #dadce0;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: all 0.15s ease-in-out;
+  text-decoration: none;
+}
+
+.btn-secondary:hover,
+.btn-ghost-pill:hover {
+  background-color: #f8f9fa;
+  border-color: #1a73e8;
+  color: #1967d2;
+}
+
+.dark .btn-secondary,
+.dark .btn-ghost-pill {
+  background-color: #171d26;
+  border-color: #2a3443;
+  color: #8ab4f8;
+}
+
+.dark .btn-secondary:hover,
+.dark .btn-ghost-pill:hover {
+  background-color: #1e2634;
+  border-color: #8ab4f8;
+  color: #a8c7fa;
+}
+
+.btn-subtle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.375rem;
+  padding: 0 1rem;
+  height: 36px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #3c4043;
+  background-color: transparent;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  transition: all 0.15s ease-in-out;
+  cursor: pointer;
+}
+
+.btn-subtle:hover {
+  background-color: #f1f3f4;
+  color: #202124;
+}
+
+.dark .btn-subtle {
+  color: #c4c7c5;
+}
+
+.dark .btn-subtle:hover {
+  background-color: #1e2634;
+  color: #f1f3f4;
+}
+
+/* Google Console Cards & Surfaces */
+.console-card {
+  background-color: #ffffff;
+  border: 1px solid #dadce0;
+  border-radius: 24px;
+  transition: all 0.2s ease-in-out;
+}
+
+.dark .console-card {
+  background-color: #171d26;
+  border-color: #2a3443;
+}
+
+.console-card-interactive {
+  background-color: #ffffff;
+  border: 1px solid #dadce0;
+  border-radius: 24px;
+  transition: all 0.2s ease-in-out;
+}
+
+.console-card-interactive:hover {
+  border-color: #1a73e8;
+  box-shadow: 0 4px 12px rgba(60, 64, 67, 0.08);
+}
+
+.dark .console-card-interactive {
+  background-color: #171d26;
+  border-color: #2a3443;
+}
+
+.dark .console-card-interactive:hover {
+  border-color: #8ab4f8;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+}
+
+/* Google Console Inputs */
+.console-input {
+  width: 100%;
+  height: 40px;
+  padding: 0 12px;
+  font-size: 0.875rem;
+  color: #202124;
+  background-color: #ffffff;
+  border: 1px solid #dadce0;
+  border-radius: 4px;
+  outline: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.console-input:focus {
+  border-color: #1a73e8;
+  box-shadow: 0 0 0 2px rgba(26, 115, 232, 0.2);
+}
+
+.dark .console-input {
+  background-color: #12161f;
+  color: #f1f3f4;
+  border-color: #2a3443;
+}
+
+.dark .console-input:focus {
+  border-color: #8ab4f8;
+  box-shadow: 0 0 0 2px rgba(138, 180, 248, 0.25);
+}
+
+/* Formal Console Chips / Badges */
+.console-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  border-radius: 9999px;
+  background-color: #e8f0fe;
+  color: #1a73e8;
+  border: 1px solid rgba(26, 115, 232, 0.2);
+}
+
+.dark .console-badge {
+  background-color: rgba(26, 115, 232, 0.15);
+  color: #8ab4f8;
+  border-color: rgba(138, 180, 248, 0.25);
+}
+
+.console-badge-neutral {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  border-radius: 9999px;
+  background-color: #f1f3f4;
+  color: #3c4043;
+  border: 1px solid #dadce0;
+}
+
+.dark .console-badge-neutral {
+  background-color: #1e2634;
+  color: #c4c7c5;
+  border-color: #2a3443;
+}
+
+/* Subtle Technical Console Background Grid */
 .bg-pattern {
   width: 100%;
-  min-height: 100vh;
-  background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%27250%27%20height%3D%27250%27%20viewBox%3D%270%200%20250%20250%27%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cg%20transform%3D%22rotate(-15%20125%20125)%22%20opacity%3D%220.1%22%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cg%20transform%3D%22translate(32.5%2C%2052.5)%22%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Ctext%20x%3D%2230%22%20y%3D%2210%22%20font-family%3D%22%27Space%20Mono%27%2C%20monospace%22%20font-size%3D%2215%22%20font-weight%3D%22bold%22%20fill%3D%22%234f46e5%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22middle%22%3EASYNCRONIX%3C%2Ftext%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3C%2Fg%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cg%20transform%3D%22translate(174.75%2C%2049.75)%22%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%0A%20%20%20%20%20%20%20%20%20%20%20%20%3Cg%20transform%3D%22scale(0.85)%22%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Crect%20x%3D%222%22%20y%3D%221%22%20width%3D%2220%22%20height%3D%2234%22%20rx%3D%223%22%20fill%3D%22none%22%20stroke%3D%22%234f46e5%22%20stroke-width%3D%222%22%2F%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Crect%20x%3D%224%22%20y%3D%223%22%20width%3D%2216%22%20height%3D%2210%22%20rx%3D%221.5%22%20fill%3D%22none%22%20stroke%3D%22%234f46e5%22%20stroke-width%3D%221.5%22%2F%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cline%20x1%3D%226%22%20y1%3D%226%22%20x2%3D%2218%22%20y2%3D%226%22%20stroke%3D%22%234f46e5%22%20stroke-width%3D%221.5%22%20stroke-linecap%3D%22round%22%2F%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cline%20x1%3D%226%22%20y1%3D%229%22%20x2%3D%2213%22%20y2%3D%229%22%20stroke%3D%22%234f46e5%22%20stroke-width%3D%221.5%22%20stroke-linecap%3D%22round%22%2F%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Ccircle%20cx%3D%226%22%20cy%3D%2218%22%20r%3D%221%22%20fill%3D%22%234f46e5%22%2F%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Ccircle%20cx%3D%2212%22%20cy%3D%2218%22%20r%3D%221%22%20fill%3D%22%234f46e5%22%2F%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Ccircle%20cx%3D%2218%22%20cy%3D%2218%22%20r%3D%221%22%20fill%3D%22%234f46e5%22%2F%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Ccircle%20cx%3D%226%22%20cy%3D%2223%22%20r%3D%221%22%20fill%3D%22%234f46e5%22%2F%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Ccircle%20cx%3D%2212%22%20cy%3D%2223%22%20r%3D%221%22%20fill%3D%22%234f46e5%22%2F%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Ccircle%20cx%3D%2218%22%20cy%3D%2223%22%20r%3D%221%22%20fill%3D%22%234f46e5%22%2F%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Ccircle%20cx%3D%226%22%20cy%3D%2228%22%20r%3D%221%22%20fill%3D%22%234f46e5%22%2F%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Ccircle%20cx%3D%2212%22%20cy%3D%2228%22%20r%3D%221%22%20fill%3D%22%234f46e5%22%2F%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Crect%20x%3D%2216%22%20y%3D%2227%22%20width%3D%224%22%20height%3D%223%22%20rx%3D%220.5%22%20fill%3D%22%234f46e5%22%2F%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%3C%2Fg%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3C%2Fg%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cg%20transform%3D%22translate(48.25%2C%20173.25)%22%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%0A%20%20%20%20%20%20%20%20%20%20%20%20%3Cg%20transform%3D%22scale(0.890625)%22%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Ccircle%20cx%3D%226%22%20cy%3D%2224%22%20r%3D%225%22%20fill%3D%22none%22%20stroke%3D%22%234f46e5%22%20stroke-width%3D%222%22%2F%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Ccircle%20cx%3D%2226%22%20cy%3D%2224%22%20r%3D%225%22%20fill%3D%22none%22%20stroke%3D%22%234f46e5%22%20stroke-width%3D%222%22%2F%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cpath%20d%3D%22M6%2C24%20L12%2C14%20L24%2C14%20L26%2C24%22%20fill%3D%22none%22%20stroke%3D%22%234f46e5%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cpath%20d%3D%22M12%2C14%20L11%2C5%20L7%2C5%22%20fill%3D%22none%22%20stroke%3D%22%234f46e5%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%2F%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Crect%20x%3D%2217%22%20y%3D%225%22%20width%3D%2210%22%20height%3D%229%22%20rx%3D%221.5%22%20fill%3D%22none%22%20stroke%3D%22%234f46e5%22%20stroke-width%3D%222%22%2F%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cline%20x1%3D%2212%22%20y1%3D%2220%22%20x2%3D%2220%22%20y2%3D%2220%22%20stroke%3D%22%234f46e5%22%20stroke-width%3D%221.5%22%2F%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%3C%2Fg%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3C%2Fg%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cg%20transform%3D%22translate(173.25%2C%20173.25)%22%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%0A%20%20%20%20%20%20%20%20%20%20%20%20%3Cg%20transform%3D%22scale(0.890625)%22%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Ccircle%20cx%3D%2213%22%20cy%3D%228%22%20r%3D%225%22%20fill%3D%22none%22%20stroke%3D%22%234f46e5%22%20stroke-width%3D%222%22%2F%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cpath%20d%3D%22M3%2C28%20C3%2C20%208%2C16%2013%2C16%20C16%2C16%2020%2C18%2022%2C22%22%20fill%3D%22none%22%20stroke%3D%22%234f46e5%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%2F%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Crect%20x%3D%2219%22%20y%3D%2214%22%20width%3D%2211%22%20height%3D%2215%22%20rx%3D%221%22%20fill%3D%22none%22%20stroke%3D%22%234f46e5%22%20stroke-width%3D%221.5%22%2F%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Crect%20x%3D%2223%22%20y%3D%2212%22%20width%3D%223%22%20height%3D%222%22%20rx%3D%220.5%22%20fill%3D%22%234f46e5%22%2F%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cpath%20d%3D%22M22%2C20%20L24%2C22%20L28%2C18%22%20fill%3D%22none%22%20stroke%3D%22%234f46e5%22%20stroke-width%3D%221.5%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cline%20x1%3D%2222%22%20y1%3D%2225%22%20x2%3D%2227%22%20y2%3D%2225%22%20stroke%3D%22%234f46e5%22%20stroke-width%3D%221%22%2F%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%3C%2Fg%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3C%2Fg%3E%3C%2Fg%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3C%2Fsvg%3E");
-  background-repeat: repeat;
-  background-size: 250px 250px;
+  background-image: radial-gradient(#dadce0 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+.dark .bg-pattern {
+  background-image: radial-gradient(#2a3443 1px, transparent 1px);
+  background-size: 24px 24px;
 }

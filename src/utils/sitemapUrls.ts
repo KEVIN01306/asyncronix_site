@@ -8,7 +8,7 @@ const langs = Object.keys(LANGUAGES);
  * Generate standard pages for all languages.
  */
 export const generateCoreUrls = (): string[] => {
-    const corePages = ['', 'about', 'modules', 'pricing', 'privacy', 'terms'];
+    const corePages = ['', 'about', 'contact', 'modules', 'pricing', 'privacy', 'terms'];
     const urls: string[] = [];
 
     langs.forEach(lang => {

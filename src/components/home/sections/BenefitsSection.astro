@@ -2,30 +2,30 @@
 const { data } = Astro.props;
 ---
 
-<section class="py-24 bg-white dark:bg-slate-800 bg-pattern transition-colors duration-300">
+<section class="py-20 bg-white dark:bg-[#171d26] border-b border-[#dadce0] dark:border-[#2a3443] transition-colors duration-200">
   <div
-    class="max-w-7xl mx-auto px-6 flex flex-col lg:flex-row items-center gap-16"
+    class="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col lg:flex-row items-center gap-12 lg:gap-16"
   >
-    <div class="w-1/2 lg:w-1/2">
-      <div class="relative glass-card p-2 lg:p-6 bg-slate-50/50 dark:bg-slate-900/50 rotate-4 transition-colors duration-300">
+    <div class="w-full lg:w-1/2">
+      <div class="relative bg-[#f8f9fa] dark:bg-[#12161f] p-3 sm:p-5 rounded-[24px] border border-[#dadce0] dark:border-[#2a3443] shadow-sm">
         <img
           src="/images/chica_asyncronix.png"
           alt="Beneficios Asyncronix"
-          class="w-full rounded-2xl shadow-lg border border-slate-200 dark:border-slate-700"
+          class="w-full rounded-[16px] object-cover border border-[#dadce0]/80 dark:border-[#2a3443]"
         />
-        <!-- Floating badge -->
+        <!-- Floating Google Console metric badge -->
         <div
-          class="absolute -right-6 -bottom-6 glass-card p-4 flex items-center gap-4 animate-float shadow-xl hidden md:flex"
+          class="absolute -right-4 -bottom-4 bg-white dark:bg-[#1e2634] border border-[#dadce0] dark:border-[#2a3443] rounded-2xl p-3.5 flex items-center gap-3 shadow-md animate-float hidden md:flex"
         >
-          <div class="bg-green-100 text-green-600 p-2 rounded-full">
+          <div class="w-10 h-10 rounded-xl bg-[#e6f4ea] dark:bg-[#188038]/20 text-[#188038] dark:text-[#81c995] flex items-center justify-center font-bold">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
+              width="20"
+              height="20"
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
-              stroke-width="2"
+              stroke-width="2.5"
               stroke-linecap="round"
               stroke-linejoin="round"
               ><path d="M12 2v20"></path><path d="m17 5-5-3-5 3"></path><path
@@ -33,28 +33,31 @@ const { data } = Astro.props;
             >
           </div>
           <div>
-            <p class="text-sm font-bold text-slate-900 dark:text-white">+120%</p>
-            <p class="text-xs text-slate-500 dark:text-slate-400">Eficiencia</p>
+            <p class="text-base font-bold text-[#202124] dark:text-[#f1f3f4] leading-tight">+120%</p>
+            <p class="text-xs text-[#5f6368] dark:text-[#9aa0a6]">Eficiencia operativa</p>
           </div>
         </div>
       </div>
     </div>
 
     <div class="w-full lg:w-1/2">
+      <div class="console-badge mb-3">
+        <span>Ventajas Competitivas</span>
+      </div>
       <h2
-        class="text-3xl md:text-5xl font-bold text-slate-900 dark:text-white mb-8 tracking-tight"
+        class="text-3xl md:text-4xl font-semibold text-[#202124] dark:text-[#f1f3f4] mb-6 tracking-tight font-display"
       >
         {data.title}
       </h2>
-      <ul class="flex flex-col gap-6">
+      <ul class="flex flex-col gap-4">
         {
           data.items.map((benefit: string) => (
-            <li class="flex items-start gap-4">
-              <div class="mt-1 flex-shrink-0 w-6 h-6 rounded-full bg-gradient-to-r from-[var(--color-secondary)] to-[var(--color-primary)] text-white flex items-center justify-center shadow-sm">
+            <li class="flex items-start gap-3.5 p-3 rounded-xl hover:bg-[#f8f9fa] dark:hover:bg-[#12161f] transition-colors">
+              <div class="mt-0.5 flex-shrink-0 w-6 h-6 rounded-full bg-[#e8f0fe] dark:bg-[#1e2634] text-[#1a73e8] dark:text-[#8ab4f8] flex items-center justify-center border border-[#dadce0]/50 dark:border-[#2a3443]">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  width="14"
-                  height="14"
+                  width="13"
+                  height="13"
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
@@ -65,7 +68,7 @@ const { data } = Astro.props;
                   <path d="M20 6 9 17l-5-5" />
                 </svg>
               </div>
-              <p class="text-lg text-slate-700 dark:text-slate-300 leading-relaxed font-medium">
+              <p class="text-base text-[#3c4043] dark:text-[#c4c7c5] leading-relaxed font-normal">
                 {benefit}
               </p>
             </li>
